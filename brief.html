@@ -3,45 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Бриф на дизайн-проект — Анастасия Ищенко, Благовещенск</title>
-  <meta name="description" content="Заполните бриф на дизайн-проект интерьера: 8 коротких вопросов о вашей квартире или доме. Ответ придёт напрямую дизайнеру в WhatsApp или Telegram.">
+  <title>Техническое задание на дизайн-проект — Анастасия Ищенко, Благовещенск</title>
+  <meta name="description" content="Анкета технического задания на дизайн-проект интерьера: стиль, цвета, перепланировка, отделка, мебель и техника по каждому помещению. Заполняется за 15–20 минут, любые поля можно пропустить.">
   <meta name="geo.region" content="RU-AMU">
   <meta name="geo.placename" content="Благовещенск">
   <link rel="canonical" href="https://prodesign-ai.ru/brief.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:url" content="https://prodesign-ai.ru/brief.html">
-  <meta property="og:title" content="Бриф на дизайн-проект — Анастасия Ищенко">
-  <meta property="og:description" content="8 коротких вопросов — и дизайнер свяжется с вами с готовым пониманием задачи.">
+  <meta property="og:title" content="Техническое задание на дизайн-проект — Анастасия Ищенко">
+  <meta property="og:description" content="Подробная анкета пожеланий к будущему интерьеру. Любые поля можно пропустить — они останутся на усмотрение дизайнера.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="fonts/roboto.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .brief { max-width: 720px; margin: 0 auto; }
-    .brief__group { margin-bottom: 28px; }
-    .brief__group > label, .brief__group > .brief__q {
-      display: block; font-weight: 600; font-size: 17px; margin-bottom: 10px;
-    }
-    .brief input[type="text"], .brief input[type="tel"], .brief textarea, .brief select {
-      width: 100%; padding: 13px 14px; font: inherit; font-size: 16px;
+    .brief { max-width: 760px; margin: 0 auto; }
+    .brief__intro { color: #333; font-size: 16.5px; max-width: 66ch; margin: 0 auto 34px; }
+    .brief__intro p { margin-bottom: 10px; }
+
+    .brief__progress { display: flex; gap: 6px; margin-bottom: 30px; }
+    .brief__progress span { flex: 1; height: 4px; border-radius: 2px; background: #dfe3e6; }
+    .brief__progress span.done { background: var(--accent); }
+    .brief__stepname { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 26px; letter-spacing: .4px; }
+
+    .bstep { display: none; }
+    .bstep.active { display: block; }
+    .bstep > h2 { font-size: 22px; margin-bottom: 6px; }
+    .bstep > .bstep__note { color: var(--muted); font-size: 14.5px; margin-bottom: 24px; }
+
+    .bq { margin-bottom: 24px; }
+    .bq > label, .bq > .bq__label { display: block; font-weight: 600; font-size: 16.5px; margin-bottom: 8px; }
+    .bq__hint { color: var(--muted); font-size: 13.5px; margin: -4px 0 10px; max-width: 68ch; }
+    .brief input[type="text"], .brief input[type="tel"], .brief textarea {
+      width: 100%; padding: 12px 14px; font: inherit; font-size: 16px;
       border: 1px solid #d5dade; border-radius: 5px; background: #fff; color: var(--ink);
     }
-    .brief input:focus, .brief textarea:focus, .brief select:focus {
-      outline: none; border-color: var(--accent);
-    }
-    .brief textarea { min-height: 96px; resize: vertical; }
-    .brief__choices { display: flex; flex-wrap: wrap; gap: 10px; }
-    .brief__choices label {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
-      border: 1px solid #d5dade; border-radius: 5px; cursor: pointer; font-size: 15.5px;
+    .brief input:focus, .brief textarea:focus { outline: none; border-color: var(--accent); }
+    .brief textarea { min-height: 84px; resize: vertical; }
+
+    .bq__choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .bq__choices label {
+      display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px;
+      border: 1px solid #d5dade; border-radius: 5px; cursor: pointer; font-size: 15px;
       background: #fff; transition: border-color .15s ease, background .15s ease;
     }
-    .brief__choices input { accent-color: var(--accent); }
-    .brief__choices label:has(input:checked) { border-color: var(--accent); background: #eef4f6; }
-    .brief__send { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
-    .brief__hint { color: var(--muted); font-size: 14px; margin-top: 12px; }
+    .bq__choices input { accent-color: var(--accent); }
+    .bq__choices label:has(input:checked) { border-color: var(--accent); background: #eef4f6; }
+    .bq__other { margin-top: 8px; display: none; }
+    .bq__other.show { display: block; }
+
+    .brief details.room {
+      border: 1px solid #e2e6e9; border-radius: 6px; margin-bottom: 14px; background: #fff;
+    }
+    .brief details.room > summary {
+      cursor: pointer; list-style: none; padding: 16px 18px; font-weight: 600; font-size: 17px;
+      position: relative;
+    }
+    .brief details.room > summary::-webkit-details-marker { display: none; }
+    .brief details.room > summary::after {
+      content: '+'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      font-size: 22px; font-weight: 300; color: var(--accent);
+    }
+    .brief details.room[open] > summary::after { content: '−'; }
+    .brief details.room > .room__body { padding: 4px 18px 14px; }
+    .brief details.room .bq { margin-bottom: 18px; }
+
+    .brief__nav { display: flex; gap: 14px; justify-content: space-between; margin-top: 34px; flex-wrap: wrap; }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid #c9cfd4; }
+    .btn--ghost:hover { background: #f0f2f4; box-shadow: none; transform: none; color: var(--ink); }
+
+    .brief__send { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
     .btn--tg { background: #2a9ed6; }
     .btn--tg:hover { background: #1f86b8; }
+    .brief__hint { color: var(--muted); font-size: 14px; margin-top: 14px; }
+    .brief__result { display: none; }
+    .brief__result.show { display: block; }
+    .brief__result textarea { min-height: 220px; font-size: 14px; }
+    .brief__saved { color: var(--muted); font-size: 13px; text-align: right; min-height: 18px; margin-top: 6px; }
   </style>
 </head>
 <body>
@@ -71,76 +109,47 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <h1>Бриф на дизайн-проект</h1>
-      <p>8 коротких вопросов. Заполненный бриф уйдёт Анастасии напрямую — она свяжется с вами уже с пониманием задачи.</p>
+      <h1>Техническое задание на дизайн-проект</h1>
+      <p>Подробная анкета пожеланий к будущему интерьеру · 6 шагов · черновик сохраняется сам</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <form class="brief" id="briefForm">
+      <div class="brief">
 
-        <div class="brief__group">
-          <label for="bName">Как вас зовут?</label>
-          <input type="text" id="bName" name="Имя" autocomplete="name" required>
+        <div class="brief__intro">
+          <p>Здравствуйте! Любой качественный дизайн-проект начинается с технического задания. Я подготовила эту анкету, чтобы узнать ваши пожелания и предпочтения к будущему интерьеру и ускорить разработку дизайн-проекта.</p>
+          <p>Приветствуется подробное заполнение, но <strong>любое поле можно пропустить</strong> — тогда этот пункт останется на усмотрение дизайнера. Внизу в свободной форме можно написать любую дополнительную информацию. Я буду рада, если вы опишете своё хобби и увлечения — так я смогу точнее создать интерьер именно для вас.</p>
         </div>
 
-        <div class="brief__group">
-          <label for="bPhone">Телефон для связи</label>
-          <input type="tel" id="bPhone" name="Телефон" autocomplete="tel" placeholder="+7 ___ ___-__-__" required>
-        </div>
+        <div class="brief__progress" id="progress"></div>
+        <div class="brief__stepname" id="stepname"></div>
 
-        <div class="brief__group">
-          <span class="brief__q">Что за объект?</span>
-          <div class="brief__choices">
-            <label><input type="radio" name="Объект" value="Квартира" checked> Квартира</label>
-            <label><input type="radio" name="Объект" value="Частный дом"> Частный дом</label>
-            <label><input type="radio" name="Объект" value="Отдельная комната"> Отдельная комната</label>
-            <label><input type="radio" name="Объект" value="Другое"> Другое</label>
+        <form id="briefForm"></form>
+
+        <div class="brief__nav">
+          <button type="button" class="btn btn--ghost" id="btnPrev">← Назад</button>
+          <button type="button" class="btn" id="btnNext">Далее →</button>
+        </div>
+        <div class="brief__saved" id="savedNote"></div>
+
+        <div class="brief__result" id="result">
+          <h2 style="font-size:22px;margin:26px 0 12px">Бриф готов — отправьте его Анастасии</h2>
+          <div class="brief__send">
+            <button type="button" class="btn" id="sendWa">Отправить в WhatsApp</button>
+            <button type="button" class="btn btn--tg" id="sendTg">Отправить в Telegram</button>
+            <button type="button" class="btn btn--ghost" id="sendMail">На почту</button>
+            <button type="button" class="btn btn--ghost" id="sendCopy">Скопировать текст</button>
+          </div>
+          <p class="brief__hint" id="sendHint">Бриф получился подробным, поэтому при отправке он копируется в буфер обмена — в открывшемся чате просто нажмите «вставить» и отправьте. Фотографии понравившихся интерьеров можно приложить следом прямо в чат или прислать на почту <a href="mailto:389046@mail.ru" style="color:var(--accent)">389046@mail.ru</a> — отметив, что в них нравится и что не нравится.</p>
+          <div class="bq" style="margin-top:18px">
+            <label for="briefOut">Текст брифа (можно проверить перед отправкой)</label>
+            <textarea id="briefOut" readonly></textarea>
           </div>
         </div>
 
-        <div class="brief__group">
-          <label for="bArea">Площадь, м² (примерно)</label>
-          <input type="text" id="bArea" name="Площадь" inputmode="numeric" placeholder="например, 57">
-        </div>
-
-        <div class="brief__group">
-          <label for="bCity">Город</label>
-          <input type="text" id="bCity" name="Город" placeholder="Благовещенск" value="Благовещенск">
-        </div>
-
-        <div class="brief__group">
-          <span class="brief__q">Какая услуга интересует?</span>
-          <div class="brief__choices">
-            <label><input type="radio" name="Услуга" value="Планировка (250 ₽/м²)"> Планировка — 250 ₽/м²</label>
-            <label><input type="radio" name="Услуга" value="Полный проект (1700 ₽/м²)" checked> Полный проект — 1700 ₽/м²</label>
-            <label><input type="radio" name="Услуга" value="Полный проект + авторский надзор"> Проект + авторский надзор</label>
-            <label><input type="radio" name="Услуга" value="Пока не знаю"> Пока не знаю</label>
-          </div>
-        </div>
-
-        <div class="brief__group">
-          <span class="brief__q">Когда планируете начать ремонт?</span>
-          <div class="brief__choices">
-            <label><input type="radio" name="Сроки" value="Уже идёт"> Уже идёт</label>
-            <label><input type="radio" name="Сроки" value="В ближайшие 1–3 месяца" checked> В ближайшие 1–3 месяца</label>
-            <label><input type="radio" name="Сроки" value="В этом году"> В этом году</label>
-            <label><input type="radio" name="Сроки" value="Пока присматриваюсь"> Пока присматриваюсь</label>
-          </div>
-        </div>
-
-        <div class="brief__group">
-          <label for="bWishes">Пожелания: стиль, что важно сохранить, кто будет жить</label>
-          <textarea id="bWishes" name="Пожелания" placeholder="Например: двое детей, нужна вместительная кухня, нравится светлый минимализм…"></textarea>
-        </div>
-
-        <div class="brief__send">
-          <button type="submit" class="btn" data-via="wa">Отправить в WhatsApp</button>
-          <button type="submit" class="btn btn--tg" data-via="tg">Отправить в Telegram</button>
-        </div>
-        <p class="brief__hint">Кнопка откроет чат с Анастасией — бриф уже будет вставлен в сообщение, останется нажать «Отправить». Никуда больше данные не уходят.</p>
-      </form>
+      </div>
     </div>
   </section>
 </main>
@@ -156,34 +165,391 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ---------- определение анкеты: все вопросы из ТЗ Анастасии, без сокращений ---------- */
+const STYLES = ['Классический','Неоклассика','Современная классика','Фьюжн','Ар-деко','Ампир','Рококо','Английский','Японский','Кантри','Скандинавский','Минимализм','Хайтек','Эко-стиль','Поп-арт','Контемпорари','Лофт'];
+const WALLS = ['Декоративная окраска','Штукатурка','Декоративная штукатурка','Обои','Обои под покраску','Декоративные панели','Мрамор','Гранит','Керамическая плитка','Облицовочный кирпич','Стеклоблоки','Мебельные панели','Искусственный мрамор','Мозаика'];
+const FLOORS = ['Штучный паркет','Паркет','Паркетная доска','Инженерная доска','Ламинат','Пробка','Керамогранит','Плитка','Ковролин','Линолеум','Наливной пол'];
+
+const YN = ['Да','Нет'];
+
+function sanuzel(prefix) {
+  return [
+    { t:'text', q:'Ванная', h:'Прямоугольная, угловая, с гидромассажем' + (prefix==='Малый санузел' ? ', с аэромассажем' : '') },
+    { t:'text', q:'Душевая кабина', h:'Стационарная, с поддоном, с трапом' },
+    { t:'radio', q:'Унитаз', o:['Напольный с бачком','Инсталляция (подвесной со скрытым бачком)'] },
+    { t:'radio', q:'Гигиенический душ', o:YN },
+    { t:'radio', q:'Биде', o:['Не нужно','Напольное','Инсталляция (подвесное)'] },
+    { t:'text', q:'Раковина', h:'Чаша на столешнице, встроенная в столешницу, подвесная, накладная, комплект («мойдодыр»)' },
+    { t:'radio', q:'Полотенцесушитель', o:['Водяной','Электрический'] },
+    { t:'radio', q:'Бойлер (водонагреватель)', o:YN },
+    { t:'radio', q:'Фильтр', o:YN },
+    { t:'radio', q:'Вытяжной вентилятор', o:YN },
+    { t:'text', q:'Другое', h:'Стиральная машина, сушильная машина, телевизор…' },
+  ];
+}
+
+const FORM = [
+  {
+    name: 'Основная информация',
+    items: [
+      { t:'text', q:'Как вас зовут', a:'name' },
+      { t:'tel', q:'Телефон для связи', a:'tel', ph:'+7 ___ ___-__-__' },
+      { t:'text', q:'Полный адрес объекта' },
+      { t:'area', q:'Состав семьи (пол, возраст)', ph:'Например: муж 38, жена 35, дочь 7' },
+      { t:'text', q:'Ориентировочный бюджет проекта', h:'На этот пункт я буду опираться при выборе мебели, материалов и сантехники подходящей ценовой категории. Бюджет лучше указывать без учёта ремонтно-отделочных работ; если бюджет общий — подпишите, что он с учётом работ.' },
+    ],
+  },
+  {
+    name: 'Стиль и атмосфера',
+    items: [
+      { t:'checks', q:'Стиль, в котором вы хотите реализовать интерьер', o:STYLES, other:true },
+      { t:'area', q:'Опишите, как вы себе представляете этот стиль', h:'Например: «скандинавский» — белые стены, просто и лаконично, много воздуха, ощущение пространства и света. «Классический» — сдержанные цвета, молдинги и лепнина, классические люстры, ощущение уюта и богатства.' },
+      { t:'area', q:'Цвета, сочетания и оттенки, которые вам нравятся', h:'Например: красный, синий, кремовый, серый, кофе с молоком, много белого, золотой, бронза, контрастные или нюансные сочетания.' },
+      { t:'area', q:'Цвета, сочетания и оттенки, которые НЕ нравятся' },
+      { t:'area', q:'Что бы вы принципиально хотели видеть в интерьере?', h:'Например: много мягкой мебели, биокамин, лепнину, узоры, много дерева, много света, простоту, двухуровневые потолки, кожаный диван, открытую вытяжку, разноцветную подсветку, необычную плитку, ниши, фонтан, картины.' },
+      { t:'area', q:'Что бы вы принципиально НЕ хотели видеть в интерьере?' },
+      { t:'checks', q:'Какие формы предпочтительнее использовать в интерьере?', o:['Прямоугольные','Закруглённые','Ломаные'] },
+      { t:'text', q:'Нужен ли камин? Тип и зона', h:'Биокамин, электрический, дровяной; в какой зоне разместить' },
+      { t:'text', q:'Домашние животные', h:'Нужно ли отдельное место для туалета, место сна?' },
+      { t:'text', q:'Комнатные растения', h:'Нужны ли, предпочтительное расположение' },
+      { t:'text', q:'Любите ли вы дерево, металл, стекло в интерьере?' },
+    ],
+  },
+  {
+    name: 'Перепланировка и конструктив',
+    items: [
+      { t:'text', q:'Нужна ли перепланировка? Необходимо ли узаконивание?' },
+      { t:'area', q:'Желательные изменения в планировке', h:'Изменение зонирования, расширение или уменьшение помещений. Например: объединить ванную и санузел.' },
+      { t:'text', q:'Замена радиаторов', h:'Чугунные, биметаллические, конвекторы в полу, другое' },
+      { t:'text', q:'Замена окон', h:'Пластиковые, деревянные, другое. Нужны ли каменные подоконники?' },
+      { t:'text', q:'Замена дверей: входной, межкомнатных', h:'Для вторичных квартир' },
+      { t:'text', q:'Нужна ли звукоизоляция помещений?', h:'При домашнем кинотеатре, близости санузла к спальному месту, лифтовой шахте и т.п.' },
+      { t:'text', q:'Нужна ли теплоизоляция лоджии (балкона) или других помещений?' },
+      { t:'text', q:'Тёплый пол: в каких помещениях, тип', h:'Электрический / водяной' },
+      { t:'text', q:'Акустическая система в доме', h:'Гостиная, спальня, ванная; состав — 5.1, 7.1…' },
+      { t:'text', q:'Вентиляция и кондиционирование', h:'В каких помещениях; сплит-система или приточно-вытяжная' },
+      { t:'radio', q:'Интегрированная система «Умный дом»', o:YN },
+      { t:'text', q:'Видеонаблюдение, сигнализация, домофон, видеофон' },
+      { t:'text', q:'Интернет', h:'Разводка кабеля по комнатам (каким), точка Wi-Fi' },
+      { t:'radio', q:'Отопительные стояки и радиаторы', o:['Скрыть','Оставить открытыми'] },
+      { t:'text', q:'Домашний телефон', h:'Не нужен / где разместить' },
+    ],
+  },
+  {
+    name: 'Отделочные материалы',
+    items: [
+      { t:'checks', q:'Стены', o:WALLS, other:true, h:'Можно несколько вариантов, либо оставьте пустым' },
+      { t:'checks', q:'Пол', o:FLOORS, other:true },
+      { t:'area', q:'Потолок: вид, многоуровневость и форма', h:'Штукатурка под покраску, подвесной гипсокартонный, натяжной. Одноуровневый или многоуровневый; округлые, квадратные, ломаные формы.' },
+      { t:'radio', q:'Двери: высота полотна', o:['Стандартная (2000 мм)','Высокие (до 2300 мм)','Очень высокие (до потолка)'] },
+      { t:'text', q:'Двери: форма', h:'Прямые гладкие, классические с рамками, другое' },
+      { t:'text', q:'Двери: дизайн', h:'Белые, крашеные, матовые, глянец, с текстурой дерева' },
+    ],
+  },
+  {
+    name: 'Мебель и техника по помещениям',
+    note: 'Раскрывайте и заполняйте только те помещения, которые есть у вас. Остальные пропустите.',
+    rooms: [
+      { room:'Прихожая', items:[ { t:'area', q:'Пожелания', h:'Встроенный шкаф, банкетка, зеркало, обувница и др.' } ] },
+      { room:'Кухня', items:[
+        { t:'checks', q:'Форма кухонного гарнитура', o:['Прямой','Г-образный','П-образный','Остров','Полуостров','Барная стойка'] },
+        { t:'radio', q:'Предпочтительные формы', o:['Прямые','Изогнутые'] },
+        { t:'radio', q:'Фасады кухни', o:['Плоские','Филёнчатые'] },
+        { t:'text', q:'Фартук', h:'Плитка, стекло, камень, пластик и другое. Нужна ли подсветка?' },
+        { t:'text', q:'Обеденный стол', h:'Круглый, прямоугольный, деревянный, стеклянный, раскладной' },
+        { t:'radio', q:'Количество мест за столом', o:['4','6','8 и более'] },
+        { t:'radio', q:'Телевизор на кухне', o:YN },
+        { t:'text', q:'Холодильник', h:'Встроенный или отдельностоящий, одностворчатый или двустворчатый' },
+        { t:'text', q:'Мойка', h:'Угловая, круглая, прямоугольная, с крылом, из искусственного камня, металлическая' },
+        { t:'radio', q:'Измельчитель', o:YN },
+        { t:'radio', q:'Посудомоечная машина', o:['45 см','60 см','Не нужна'] },
+        { t:'radio', q:'Стиральная машина на кухне', o:YN },
+        { t:'radio', q:'Варочная поверхность', o:['Газовая','Электрическая','Индукционная'] },
+        { t:'text', q:'Вытяжка', h:'Встраиваемая или отдельностоящая; в вентстояк или на угольных фильтрах' },
+        { t:'radio', q:'Духовой шкаф', o:['В «столбе» с микроволновкой','Под варочной поверхностью'] },
+        { t:'radio', q:'Микроволновая печь', o:['В «столбе» с духовым шкафом','Отдельностоящая'] },
+        { t:'radio', q:'Фильтр для воды', o:YN },
+        { t:'text', q:'Другая техника', h:'Ледогенератор, винный шкаф, пароварка, прочее' },
+        { t:'text', q:'Сколько розеток нужно на фартуке' },
+        { t:'radio', q:'Газовая колонка (бойлер)', o:YN },
+        { t:'area', q:'Другое по кухне' },
+      ]},
+      { room:'Гостиная', items:[
+        { t:'text', q:'Теле-, видео-, аудиоаппаратура', h:'Домашний кинотеатр, аудиосистема, проектор' },
+        { t:'text', q:'Диван', h:'Угловой, прямой, п-образный, два дивана' },
+        { t:'radio', q:'Раскладывающийся диван (для гостей)', o:YN },
+        { t:'area', q:'Системы хранения', h:'Стеллажи открытые/закрытые, хранение дисков и книг, полка под ТВ, серванты' },
+        { t:'area', q:'Другое по гостиной' },
+      ]},
+      { room:'Спальня', items:[
+        { t:'text', q:'Телевизор, другая аппаратура' },
+        { t:'radio', q:'Ширина матраса', o:['160','180','200'], other:true, oh:'Или напишите свой вариант: круглая кровать, односпальная…' },
+        { t:'radio', q:'Туалетный столик', o:YN },
+        { t:'radio', q:'Кресло', o:YN },
+        { t:'radio', q:'Рабочее место', o:YN },
+        { t:'radio', q:'Шкаф', o:['Распашной','Купе','Гардеробная'] },
+        { t:'radio', q:'Комод', o:YN },
+        { t:'checks', q:'Зеркало', o:['На шкафу','Напольное','Настенное'] },
+        { t:'area', q:'Другое по спальне' },
+      ]},
+      { room:'Детская 1', items:[
+        { t:'text', q:'Возраст ребёнка' },
+        { t:'text', q:'Телевизор, другая аппаратура' },
+        { t:'text', q:'Ширина матраса', h:'120–200; нужна ли двухэтажная кровать?' },
+        { t:'radio', q:'Дополнительный диван', o:YN },
+        { t:'radio', q:'Рабочее место', o:YN },
+        { t:'radio', q:'Шкаф', o:['Распашной','Купе','Гардеробная'] },
+        { t:'radio', q:'Комод', o:YN },
+        { t:'text', q:'Вид дизайна', h:'Детский или для подростка; предпочтительные цвета — розовые, синие и др.' },
+        { t:'area', q:'Другое по детской' },
+      ]},
+      { room:'Детская 2', items:[
+        { t:'text', q:'Возраст ребёнка' },
+        { t:'text', q:'Телевизор, другая аппаратура' },
+        { t:'text', q:'Ширина матраса', h:'120–200; нужна ли двухэтажная кровать?' },
+        { t:'radio', q:'Туалетный столик', o:YN },
+        { t:'radio', q:'Кресло', o:YN },
+        { t:'radio', q:'Рабочее место', o:YN },
+        { t:'radio', q:'Шкаф', o:['Распашной','Купе','Гардеробная'] },
+        { t:'radio', q:'Комод', o:YN },
+        { t:'checks', q:'Зеркало', o:['На шкафу','Напольное','Настенное'] },
+        { t:'area', q:'Другое по детской 2' },
+      ]},
+      { room:'Большой санузел', items: sanuzel('Большой санузел') },
+      { room:'Малый санузел', items: sanuzel('Малый санузел') },
+      { room:'Кабинет', items:[ { t:'area', q:'Пожелания по кабинету' } ] },
+      { room:'Балкон', items:[ { t:'area', q:'Пожелания по балкону' } ] },
+      { room:'Другое помещение', items:[ { t:'area', q:'Какое помещение и пожелания' } ] },
+    ],
+  },
+  {
+    name: 'Прочие вопросы и пожелания',
+    items: [
+      { t:'area', q:'В интерьере учесть', h:'Имеющаяся мебель, ковры, приборы, инструменты, книги и др.' },
+      { t:'area', q:'Есть ли уникальные предметы, коллекции, библиотека, которые надо разместить в интерьере?' },
+      { t:'area', q:'Есть ли у вас хобби, которое нужно или можно отразить в интерьере?' },
+      { t:'text', q:'Сейф', h:'Нужен ли, где разместить' },
+      { t:'text', q:'Инвентарь для уборки', h:'Где хранить' },
+      { t:'text', q:'Ящик для грязного белья' },
+      { t:'text', q:'Место для сушки белья' },
+      { t:'text', q:'Гладильная доска' },
+      { t:'text', q:'Часто ли вы принимаете гостей?' },
+      { t:'text', q:'Музыкальные инструменты', h:'Рояль, фортепиано, ударные — нужно ли место?' },
+      { t:'radio', q:'Хотите ли установить дома аквариум?', o:YN },
+      { t:'radio', q:'Читаете ли вы, лёжа на кровати?', o:YN },
+      { t:'area', q:'Другие пожелания к интерьеру', h:'Всё, что не вошло в вопросы выше — в свободной форме.' },
+    ],
+  },
+];
+
+/* ---------- рендер ---------- */
 const form = document.getElementById('briefForm');
-let via = 'wa';
-form.querySelectorAll('button[type="submit"]').forEach((b) =>
-  b.addEventListener('click', () => { via = b.dataset.via; })
-);
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const fd = new FormData(form);
-  const lines = ['Бриф с сайта prodesign-ai.ru:', ''];
-  for (const [k, v] of fd.entries()) {
-    if (String(v).trim()) lines.push(k + ': ' + String(v).trim());
+const progress = document.getElementById('progress');
+const stepname = document.getElementById('stepname');
+let uid = 0;
+
+function renderItem(it) {
+  const id = 'f' + (++uid);
+  const wrap = document.createElement('div');
+  wrap.className = 'bq';
+  wrap.dataset.q = it.q;
+  const hint = it.h ? '<div class="bq__hint">' + it.h + '</div>' : '';
+
+  if (it.t === 'text' || it.t === 'tel') {
+    wrap.innerHTML = '<label for="' + id + '">' + it.q + '</label>' + hint +
+      '<input type="' + (it.t === 'tel' ? 'tel' : 'text') + '" id="' + id + '"' +
+      (it.ph ? ' placeholder="' + it.ph + '"' : '') +
+      (it.a ? ' autocomplete="' + it.a + '"' : '') + '>';
+  } else if (it.t === 'area') {
+    wrap.innerHTML = '<label for="' + id + '">' + it.q + '</label>' + hint +
+      '<textarea id="' + id + '"' + (it.ph ? ' placeholder="' + it.ph + '"' : '') + '></textarea>';
+  } else if (it.t === 'radio' || it.t === 'checks') {
+    const type = it.t === 'radio' ? 'radio' : 'checkbox';
+    const opts = it.o.map((o) =>
+      '<label><input type="' + type + '" name="' + id + '" value="' + o + '"> ' + o + '</label>'
+    ).join('');
+    const other = it.other
+      ? '<label><input type="' + type + '" name="' + id + '" value="__other"> Другое</label>'
+      : '';
+    const otherInput = it.other
+      ? '<div class="bq__other"><input type="text" placeholder="' + (it.oh || 'Свой вариант') + '"></div>'
+      : '';
+    wrap.innerHTML = '<span class="bq__label">' + it.q + '</span>' + hint +
+      '<div class="bq__choices">' + opts + other + '</div>' + otherInput;
   }
+  return wrap;
+}
+
+FORM.forEach((step, si) => {
+  const sec = document.createElement('section');
+  sec.className = 'bstep';
+  sec.dataset.step = si;
+  sec.dataset.name = step.name;
+  let inner = '';
+  sec.appendChild(Object.assign(document.createElement('h2'), { textContent: (si + 1) + '. ' + step.name }));
+  if (step.note) sec.appendChild(Object.assign(document.createElement('div'), { className: 'bstep__note', textContent: step.note }));
+  if (step.items) step.items.forEach((it) => sec.appendChild(renderItem(it)));
+  if (step.rooms) step.rooms.forEach((r) => {
+    const d = document.createElement('details');
+    d.className = 'room';
+    d.dataset.room = r.room;
+    d.innerHTML = '<summary>' + r.room + '</summary>';
+    const body = document.createElement('div');
+    body.className = 'room__body';
+    r.items.forEach((it) => body.appendChild(renderItem(it)));
+    d.appendChild(body);
+    sec.appendChild(d);
+  });
+  form.appendChild(sec);
+  const bar = document.createElement('span');
+  progress.appendChild(bar);
+});
+
+/* ---------- «другое» показывает поле ---------- */
+form.addEventListener('change', (e) => {
+  const choices = e.target.closest('.bq');
+  if (!choices) return;
+  const otherBox = choices.querySelector('.bq__other');
+  if (otherBox) {
+    const checked = choices.querySelector('input[value="__other"]');
+    otherBox.classList.toggle('show', !!(checked && checked.checked));
+  }
+  save();
+});
+form.addEventListener('input', () => save());
+
+/* ---------- шаги ---------- */
+const steps = [...form.querySelectorAll('.bstep')];
+let cur = 0;
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const result = document.getElementById('result');
+
+function showStep(i) {
+  cur = Math.max(0, Math.min(steps.length - 1, i));
+  steps.forEach((s, k) => s.classList.toggle('active', k === cur));
+  [...progress.children].forEach((b, k) => b.classList.toggle('done', k <= cur));
+  stepname.textContent = 'Шаг ' + (cur + 1) + ' из ' + steps.length + ' — ' + steps[cur].dataset.name;
+  btnPrev.style.visibility = cur === 0 ? 'hidden' : 'visible';
+  btnNext.textContent = cur === steps.length - 1 ? 'Сформировать бриф' : 'Далее →';
+  result.classList.remove('show');
+  window.scrollTo({ top: document.querySelector('.brief').offsetTop - 90, behavior: 'smooth' });
+}
+btnPrev.addEventListener('click', () => showStep(cur - 1));
+btnNext.addEventListener('click', () => {
+  if (cur < steps.length - 1) { showStep(cur + 1); return; }
+  buildText();
+  result.classList.add('show');
+  result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+/* ---------- сборка текста ---------- */
+function answerOf(bq) {
+  const inp = bq.querySelector(':scope > input, :scope > textarea');
+  if (inp) return inp.value.trim();
+  const checked = [...bq.querySelectorAll('.bq__choices input:checked')].map((c) => {
+    if (c.value === '__other') {
+      const o = bq.querySelector('.bq__other input');
+      return o && o.value.trim() ? o.value.trim() : '';
+    }
+    return c.value;
+  }).filter(Boolean);
+  return checked.join(', ');
+}
+
+function buildText() {
+  const lines = ['ТЕХНИЧЕСКОЕ ЗАДАНИЕ НА ДИЗАЙН-ПРОЕКТ', 'с сайта prodesign-ai.ru', ''];
+  steps.forEach((s) => {
+    const secLines = [];
+    s.querySelectorAll(':scope > .bq').forEach((bq) => {
+      const a = answerOf(bq);
+      if (a) secLines.push('• ' + bq.dataset.q + ': ' + a);
+    });
+    s.querySelectorAll('details.room').forEach((room) => {
+      const roomLines = [];
+      room.querySelectorAll('.bq').forEach((bq) => {
+        const a = answerOf(bq);
+        if (a) roomLines.push('  – ' + bq.dataset.q + ': ' + a);
+      });
+      if (roomLines.length) secLines.push('▪ ' + room.dataset.room + ':', ...roomLines);
+    });
+    if (secLines.length) lines.push('=== ' + s.dataset.name.toUpperCase() + ' ===', ...secLines, '');
+  });
   const text = lines.join('\n');
-  if (via === 'tg') {
-    // Telegram не умеет открыть личный чат с готовым текстом —
-    // кладём бриф в буфер и открываем чат, останется вставить.
-    const open = () => window.open('https://t.me/fornastya', '_blank', 'noopener');
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(() => {
-        document.querySelector('.brief__hint').textContent =
-          'Бриф скопирован в буфер обмена. В открывшемся чате нажмите «вставить» и отправьте.';
-        open();
-      }, open);
-    } else { open(); }
-  } else {
+  document.getElementById('briefOut').value = text;
+  return text;
+}
+
+/* ---------- отправка ---------- */
+const hintEl = document.getElementById('sendHint');
+function copyThen(fn, okMsg) {
+  const text = buildText();
+  const go = () => fn(text);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => { hintEl.textContent = okMsg; go(); }, go);
+  } else go();
+}
+document.getElementById('sendWa').addEventListener('click', () => {
+  const text = buildText();
+  if (text.length < 1500) {
     window.open('https://wa.me/79145389046?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  } else {
+    copyThen(() => window.open('https://wa.me/79145389046', '_blank', 'noopener'),
+      'Бриф скопирован в буфер. В открывшемся WhatsApp нажмите в поле сообщения «вставить» и отправьте.');
   }
 });
+document.getElementById('sendTg').addEventListener('click', () =>
+  copyThen(() => window.open('https://t.me/fornastya', '_blank', 'noopener'),
+    'Бриф скопирован в буфер. В открывшемся Telegram нажмите в поле сообщения «вставить» и отправьте.'));
+document.getElementById('sendMail').addEventListener('click', () => {
+  const text = buildText();
+  copyThen(() => {
+    location.href = 'mailto:389046@mail.ru?subject=' +
+      encodeURIComponent('Техническое задание на дизайн-проект') +
+      '&body=' + encodeURIComponent(text.length < 1800 ? text : 'Бриф скопирован в буфер обмена — вставьте его сюда (Ctrl+V).');
+  }, 'Бриф скопирован в буфер. Если письмо открылось без текста — вставьте его в тело письма (Ctrl+V).');
+});
+document.getElementById('sendCopy').addEventListener('click', () =>
+  copyThen(() => {}, 'Бриф скопирован в буфер обмена — вставьте его в любой мессенджер или письмо.'));
+
+/* ---------- автосохранение черновика ---------- */
+const KEY = 'brief_prodesign_v2';
+let saveTimer;
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    const data = {};
+    form.querySelectorAll('input[type="text"], input[type="tel"], textarea').forEach((el, i) => {
+      if (el.value.trim()) data['t' + i] = el.value;
+    });
+    form.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked').forEach((el) => {
+      data['c_' + el.name + '_' + el.value] = 1;
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+    const n = document.getElementById('savedNote');
+    n.textContent = 'Черновик сохранён';
+    setTimeout(() => { n.textContent = ''; }, 1500);
+  }, 400);
+}
+(function restore() {
+  let data;
+  try { data = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return; }
+  form.querySelectorAll('input[type="text"], input[type="tel"], textarea').forEach((el, i) => {
+    if (data['t' + i]) el.value = data['t' + i];
+  });
+  form.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach((el) => {
+    if (data['c_' + el.name + '_' + el.value]) {
+      el.checked = true;
+      const bq = el.closest('.bq');
+      const otherBox = bq && bq.querySelector('.bq__other');
+      if (otherBox && el.value === '__other') otherBox.classList.add('show');
+      const room = el.closest('details.room');
+      if (room) room.open = true;
+    }
+  });
+})();
+
+showStep(0);
 </script>
 </body>
 </html>
