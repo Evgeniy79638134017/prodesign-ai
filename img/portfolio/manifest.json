@@ -1,0 +1,233 @@
+[
+  {
+    "slug": "p01-kvartira-57",
+    "title": "Квартира 2-комнатная, 57 м²",
+    "place": "г. Благовещенск",
+    "year": "2025",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp"
+    ]
+  },
+  {
+    "slug": "p02-kvartira-61",
+    "title": "Квартира 2-комнатная, 61 м²",
+    "place": "г. Благовещенск",
+    "year": "2024",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp"
+    ]
+  },
+  {
+    "slug": "p03-kvartira-72",
+    "title": "Квартира 3-комнатная, 72 м²",
+    "place": "г. Благовещенск",
+    "year": "2024",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp"
+    ]
+  },
+  {
+    "slug": "p04-kvartira-72-2022",
+    "title": "Квартира 3-комнатная, 72 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp",
+      "10.webp",
+      "11.webp",
+      "12.webp",
+      "13.webp",
+      "14.webp",
+      "15.webp",
+      "16.webp",
+      "17.webp",
+      "18.webp",
+      "19.webp"
+    ]
+  },
+  {
+    "slug": "p05-detskaya-15",
+    "title": "Детская комната, 15 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p06-komnata-16",
+    "title": "Комната с зоной спальни, 16 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p07-kvartira-74",
+    "title": "Квартира, 74 м²",
+    "place": "г. Благовещенск",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp",
+      "10.webp"
+    ]
+  },
+  {
+    "slug": "p08-spalnya-155",
+    "title": "Спальня, 15,5 м²",
+    "place": "г. Владивосток",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p09-detskaya-malchik",
+    "title": "Детская комната для мальчика, 15 м²",
+    "place": "г. Благовещенск",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p10-vannaya-7",
+    "title": "Ванная комната, 7 м²",
+    "place": "г. Благовещенск",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p11-sanuzel-hrushchevka",
+    "title": "Санузел в «хрущёвке», 2,5 м²",
+    "place": "г. Благовещенск",
+    "year": "",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp"
+    ]
+  },
+  {
+    "slug": "p12-kuhnya-15",
+    "title": "Кухня в современном стиле, 15 м²",
+    "place": "г. Благовещенск",
+    "year": "",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp",
+      "10.webp",
+      "11.webp",
+      "12.webp"
+    ]
+  },
+  {
+    "slug": "p13-kottedzh-200",
+    "title": "Коттедж, 200 м²",
+    "place": "г. Свободный",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp",
+      "10.webp",
+      "11.webp",
+      "12.webp",
+      "13.webp",
+      "14.webp",
+      "15.webp",
+      "16.webp",
+      "17.webp",
+      "18.webp"
+    ]
+  },
+  {
+    "slug": "p14-kvartira-58",
+    "title": "Квартира, 58 м²",
+    "place": "г. Благовещенск",
+    "year": "2021",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp"
+    ]
+  }
+]
