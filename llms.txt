@@ -24,5 +24,5 @@
 - Город: Благовещенск, Амурская область, Россия
 
 ## Страницы
-- [Главная](https://evgeniy79638134017.github.io/anastasia-ishchenko-design/): услуги, цены, этапы работы, контакты
-- [Портфолио](https://evgeniy79638134017.github.io/anastasia-ishchenko-design/portfolio.html): 14 проектов со 119 фотографиями
+- [Главная](https://prodesign-ai.ru/): услуги, цены, этапы работы, контакты
+- [Портфолио](https://prodesign-ai.ru/portfolio.html): 14 проектов со 119 фотографиями

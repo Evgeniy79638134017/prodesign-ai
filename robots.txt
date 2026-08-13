@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evgeniy79638134017.github.io/anastasia-ishchenko-design/sitemap.xml
+Sitemap: https://prodesign-ai.ru/sitemap.xml
