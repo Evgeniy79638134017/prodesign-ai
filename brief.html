@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бриф на дизайн-проект — Анастасия Ищенко, Благовещенск</title>
+  <meta name="description" content="Заполните бриф на дизайн-проект интерьера: 8 коротких вопросов о вашей квартире или доме. Ответ придёт напрямую дизайнеру в WhatsApp или Telegram.">
+  <meta name="geo.region" content="RU-AMU">
+  <meta name="geo.placename" content="Благовещенск">
+  <link rel="canonical" href="https://prodesign-ai.ru/brief.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://prodesign-ai.ru/brief.html">
+  <meta property="og:title" content="Бриф на дизайн-проект — Анастасия Ищенко">
+  <meta property="og:description" content="8 коротких вопросов — и дизайнер свяжется с вами с готовым пониманием задачи.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/roboto.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .brief { max-width: 720px; margin: 0 auto; }
+    .brief__group { margin-bottom: 28px; }
+    .brief__group > label, .brief__group > .brief__q {
+      display: block; font-weight: 600; font-size: 17px; margin-bottom: 10px;
+    }
+    .brief input[type="text"], .brief input[type="tel"], .brief textarea, .brief select {
+      width: 100%; padding: 13px 14px; font: inherit; font-size: 16px;
+      border: 1px solid #d5dade; border-radius: 5px; background: #fff; color: var(--ink);
+    }
+    .brief input:focus, .brief textarea:focus, .brief select:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .brief textarea { min-height: 96px; resize: vertical; }
+    .brief__choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    .brief__choices label {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+      border: 1px solid #d5dade; border-radius: 5px; cursor: pointer; font-size: 15.5px;
+      background: #fff; transition: border-color .15s ease, background .15s ease;
+    }
+    .brief__choices input { accent-color: var(--accent); }
+    .brief__choices label:has(input:checked) { border-color: var(--accent); background: #eef4f6; }
+    .brief__send { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+    .brief__hint { color: var(--muted); font-size: 14px; margin-top: 12px; }
+    .btn--tg { background: #2a9ed6; }
+    .btn--tg:hover { background: #1f86b8; }
+  </style>
+</head>
+<body>
+
+<header class="header scrolled">
+  <div class="header__inner">
+    <a class="header__logo" href="index.html">Дизайн</a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="index.html#services">Услуги</a>
+      <a href="index.html#about">Обо мне</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="index.html#costs">Цены</a>
+      <a href="index.html#steps">Как я работаю</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
+    <div class="header__social">
+      <a href="https://www.instagram.com/anastasia_prodesign/" target="_blank" rel="noopener nofollow" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.2a6.6 6.6 0 1 0 0 13.2 6.6 6.6 0 0 0 0-13.2m0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6M19.4 5.1a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Бриф на дизайн-проект</h1>
+      <p>8 коротких вопросов. Заполненный бриф уйдёт Анастасии напрямую — она свяжется с вами уже с пониманием задачи.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <form class="brief" id="briefForm">
+
+        <div class="brief__group">
+          <label for="bName">Как вас зовут?</label>
+          <input type="text" id="bName" name="Имя" autocomplete="name" required>
+        </div>
+
+        <div class="brief__group">
+          <label for="bPhone">Телефон для связи</label>
+          <input type="tel" id="bPhone" name="Телефон" autocomplete="tel" placeholder="+7 ___ ___-__-__" required>
+        </div>
+
+        <div class="brief__group">
+          <span class="brief__q">Что за объект?</span>
+          <div class="brief__choices">
+            <label><input type="radio" name="Объект" value="Квартира" checked> Квартира</label>
+            <label><input type="radio" name="Объект" value="Частный дом"> Частный дом</label>
+            <label><input type="radio" name="Объект" value="Отдельная комната"> Отдельная комната</label>
+            <label><input type="radio" name="Объект" value="Другое"> Другое</label>
+          </div>
+        </div>
+
+        <div class="brief__group">
+          <label for="bArea">Площадь, м² (примерно)</label>
+          <input type="text" id="bArea" name="Площадь" inputmode="numeric" placeholder="например, 57">
+        </div>
+
+        <div class="brief__group">
+          <label for="bCity">Город</label>
+          <input type="text" id="bCity" name="Город" placeholder="Благовещенск" value="Благовещенск">
+        </div>
+
+        <div class="brief__group">
+          <span class="brief__q">Какая услуга интересует?</span>
+          <div class="brief__choices">
+            <label><input type="radio" name="Услуга" value="Планировка (250 ₽/м²)"> Планировка — 250 ₽/м²</label>
+            <label><input type="radio" name="Услуга" value="Полный проект (1700 ₽/м²)" checked> Полный проект — 1700 ₽/м²</label>
+            <label><input type="radio" name="Услуга" value="Полный проект + авторский надзор"> Проект + авторский надзор</label>
+            <label><input type="radio" name="Услуга" value="Пока не знаю"> Пока не знаю</label>
+          </div>
+        </div>
+
+        <div class="brief__group">
+          <span class="brief__q">Когда планируете начать ремонт?</span>
+          <div class="brief__choices">
+            <label><input type="radio" name="Сроки" value="Уже идёт"> Уже идёт</label>
+            <label><input type="radio" name="Сроки" value="В ближайшие 1–3 месяца" checked> В ближайшие 1–3 месяца</label>
+            <label><input type="radio" name="Сроки" value="В этом году"> В этом году</label>
+            <label><input type="radio" name="Сроки" value="Пока присматриваюсь"> Пока присматриваюсь</label>
+          </div>
+        </div>
+
+        <div class="brief__group">
+          <label for="bWishes">Пожелания: стиль, что важно сохранить, кто будет жить</label>
+          <textarea id="bWishes" name="Пожелания" placeholder="Например: двое детей, нужна вместительная кухня, нравится светлый минимализм…"></textarea>
+        </div>
+
+        <div class="brief__send">
+          <button type="submit" class="btn" data-via="wa">Отправить в WhatsApp</button>
+          <button type="submit" class="btn btn--tg" data-via="tg">Отправить в Telegram</button>
+        </div>
+        <p class="brief__hint">Кнопка откроет чат с Анастасией — бриф уже будет вставлен в сообщение, останется нажать «Отправить». Никуда больше данные не уходят.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© <span id="year">2026</span> Анастасия Ищенко — дизайн интерьера, Благовещенск</span>
+    <a href="index.html">На главную</a>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const form = document.getElementById('briefForm');
+let via = 'wa';
+form.querySelectorAll('button[type="submit"]').forEach((b) =>
+  b.addEventListener('click', () => { via = b.dataset.via; })
+);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const lines = ['Бриф с сайта prodesign-ai.ru:', ''];
+  for (const [k, v] of fd.entries()) {
+    if (String(v).trim()) lines.push(k + ': ' + String(v).trim());
+  }
+  const text = lines.join('\n');
+  if (via === 'tg') {
+    // Telegram не умеет открыть личный чат с готовым текстом —
+    // кладём бриф в буфер и открываем чат, останется вставить.
+    const open = () => window.open('https://t.me/fornastya', '_blank', 'noopener');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        document.querySelector('.brief__hint').textContent =
+          'Бриф скопирован в буфер обмена. В открывшемся чате нажмите «вставить» и отправьте.';
+        open();
+      }, open);
+    } else { open(); }
+  } else {
+    window.open('https://wa.me/79145389046?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  }
+});
+</script>
+</body>
+</html>
