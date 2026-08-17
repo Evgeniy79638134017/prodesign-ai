@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://prodesign-ai.ru/img/hero-1920.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="img/hero-1920.webp" as="image" media="(min-width: 561px)">
-  <link rel="stylesheet" href="fonts/roboto.css">
+  <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {
@@ -43,7 +43,6 @@
         ],
         "founder": { "@id": "https://prodesign-ai.ru/#person" },
         "sameAs": [
-          "https://www.instagram.com/anastasia_prodesign/",
           "https://t.me/fornastya"
         ],
         "makesOffer": [
@@ -81,7 +80,6 @@
         "worksFor": { "@id": "https://prodesign-ai.ru/#service" },
         "homeLocation": { "@type": "City", "name": "Благовещенск" },
         "sameAs": [
-          "https://www.instagram.com/anastasia_prodesign/",
           "https://t.me/fornastya"
         ]
       },
@@ -118,7 +116,10 @@
 
 <header class="header">
   <div class="header__inner">
-    <a class="header__logo" href="#top">Дизайн</a>
+    <a class="header__logo" href="#top" aria-label="Анастасия Ищенко — на начало страницы">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 21c-1-7 0-13 3-18"/><path d="M13.5 9C10.5 9.5 8.5 11.5 8 14"/><path d="M14.5 6c2.5.8 4.1 2.6 4.5 5"/></svg>
+      Анастасия Ищенко
+    </a>
     <button class="burger" aria-label="Открыть меню" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -127,13 +128,11 @@
       <a href="#about">Обо мне</a>
       <a href="#projects">Портфолио</a>
       <a href="#costs">Цены</a>
-      <a href="#steps">Как я работаю</a>
+      <a href="#steps">Процесс</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <div class="header__social">
-      <a href="https://www.instagram.com/anastasia_prodesign/" target="_blank" rel="noopener nofollow" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.2a6.6 6.6 0 1 0 0 13.2 6.6 6.6 0 0 0 0-13.2m0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6M19.4 5.1a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/></svg>
-      </a>
+    <div class="header__cta">
+      <a class="btn" href="#contacts">Обсудить проект</a>
     </div>
   </div>
 </header>
@@ -142,55 +141,103 @@
 
   <!-- ГЕРОЙ -->
   <section class="hero">
-    <div class="hero__content">
-      <h1 class="hero__title">Анастасия Ищенко</h1>
-      <p class="hero__subtitle">Дизайнер жилых помещений · Благовещенск</p>
-      <div class="hero__cta">
-        <a class="btn" href="#contacts">Заказать проект</a>
+    <div class="branch" style="right:2%;top:120px" aria-hidden="true">
+      <svg width="150" height="210" viewBox="0 0 130 180" fill="none" stroke="#6f7f58" stroke-width="1.3" stroke-linecap="round"><path d="M64 176C61 128 66 66 84 8"/><path d="M76 44c-15 4-26 15-30 28"/><path d="M80 30c15 6 24 17 26 30"/><path d="M70 78c-13 6-20 17-22 28"/><path d="M68 106c15 4 24 13 26 24"/><path d="M74 60c12 3 19 10 21 19"/></svg>
+    </div>
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <div class="hero__eyebrow">Дизайн интерьера · Благовещенск</div>
+          <h1 class="hero__title">Анастасия Ищенко</h1>
+          <p class="hero__lead">Интерьеры, в которых хочется жить</p>
+          <p class="hero__descr">Проектирую жилые пространства с 2019 года: квартиры, детские, кухни, частные дома. Продумываю планировку до сантиметра — чтобы каждый метр работал на вас.</p>
+          <div class="hero__cta">
+            <a class="btn" href="#contacts">Обсудить проект</a>
+            <a class="btn btn--light" href="portfolio.html">Смотреть работы</a>
+          </div>
+        </div>
+        <div class="hero__photo">
+          <img src="img/hero-1920.webp" srcset="img/hero-960.webp 960w, img/hero-1920.webp 1920w" sizes="(max-width: 980px) 92vw, 46vw" alt="Интерьер гостиной — дизайн-проект Анастасии Ищенко, Благовещенск" fetchpriority="high">
+          <div class="hero__badge" aria-hidden="true">
+            <b>с 2019</b>
+            <span>в дизайне</span>
+          </div>
+        </div>
       </div>
     </div>
-    <a class="hero__arrow" href="#services" aria-label="Прокрутить к услугам">
-      <svg viewBox="0 0 38.417 18.592"><path d="M19.208 18.592c-.241 0-.483-.087-.673-.261L.327 1.74C-.081 1.368-.111.736.261.327.633-.082 1.265-.112 1.674.261L19.208 16.24 36.743.261c.411-.372 1.042-.342 1.413.066.372.408.343 1.041-.065 1.413L19.881 18.332c-.19.173-.432.26-.673.26z"/></svg>
-    </a>
+    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#eee3d0" d="M0,40 C180,84 330,10 520,30 C700,49 820,92 1010,72 C1180,54 1300,14 1440,34 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- УСЛУГИ -->
-  <section class="section section--soft" id="services">
+  <section class="section section--soft" id="services" style="padding-top:56px">
     <div class="container">
       <div class="section__head">
-        <h2 class="section__title">Мои услуги</h2>
-        <p class="section__lead">Я создаю функциональные дизайнерские проекты от маленьких до больших пространств</p>
+        <div class="section__eyebrow">Что я делаю</div>
+        <h2 class="section__title">Продуманный дизайн <i>для реальной жизни</i></h2>
+        <p class="section__lead">От планировки маленькой комнаты до полного проекта дома — с документацией, по которой работают строители</p>
       </div>
       <div class="services">
         <article class="service">
-          <img src="img/icons/service-plan.svg" alt="" width="64" height="64" loading="lazy">
-          <h3>Интерьер квартир</h3>
-          <p>Я проектирую интерьеры больших и маленьких квартир. Знаю, как создать уют в любой комнате.</p>
+          <div class="service__photo">
+            <div class="service__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 4h18v16H3z"/><path d="M9 4v16M3 12h6"/></svg>
+            </div>
+            <img src="img/preview/01.webp" alt="Интерьер квартиры — дизайн-проект" width="340" height="208" loading="lazy">
+          </div>
+          <div class="service__body">
+            <h3>Интерьер квартир</h3>
+            <p>От небольшой квартиры до многокомнатной. Планировка продумывается так, чтобы работал каждый метр — особенно когда метров немного.</p>
+          </div>
         </article>
         <article class="service">
-          <img src="img/icons/service-home.svg" alt="" width="64" height="64" loading="lazy">
-          <h3>Интерьер частных домов</h3>
-          <p>Я делаю дизайн для частных домов любого размера и планировки. Создаю уютную обстановку.</p>
+          <div class="service__photo">
+            <div class="service__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            </div>
+            <img src="img/portfolio/p13-kottedzh-200/01.webp" alt="Интерьер частного дома — коттедж 200 м²" width="340" height="208" loading="lazy">
+          </div>
+          <div class="service__body">
+            <h3>Интерьер частных домов</h3>
+            <p>Дома и коттеджи любой площади — самый большой проект в портфолио 200 м². Второй свет, лестницы, нестандартные объёмы.</p>
+          </div>
         </article>
         <article class="service">
-          <img src="img/icons/service-nadzor.svg" alt="" width="64" height="64" loading="lazy">
-          <h3>Авторский надзор</h3>
-          <p>Я позабочусь обо всём, что связано с проектом: будь то подрядчики по строительству или инженерные работы.</p>
+          <div class="service__photo">
+            <div class="service__badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <img src="img/preview/11.webp" alt="Авторский надзор — контроль реализации проекта" width="340" height="208" loading="lazy">
+          </div>
+          <div class="service__body">
+            <h3>Авторский надзор</h3>
+            <p>Чтобы проект не остался картинкой: контроль работ на объекте, общение с подрядчиками, подбор материалов и аналогов.</p>
+          </div>
         </article>
       </div>
     </div>
+    <div class="wave" style="margin-top:74px;margin-bottom:-68px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#f6efe3" d="M0,44 C200,8 360,78 560,60 C760,42 880,4 1080,26 C1240,44 1340,72 1440,52 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- ОБО МНЕ -->
   <section class="section" id="about">
+    <div class="branch" style="right:1%;top:60px" aria-hidden="true">
+      <svg width="120" height="170" viewBox="0 0 130 180" fill="none" stroke="#6f7f58" stroke-width="1.3" stroke-linecap="round"><path d="M64 176C61 128 66 66 84 8"/><path d="M76 44c-15 4-26 15-30 28"/><path d="M80 30c15 6 24 17 26 30"/><path d="M70 78c-13 6-20 17-22 28"/></svg>
+    </div>
     <div class="container">
       <div class="about">
-        <div class="about__photo">
-          <img src="img/about-800.webp" alt="Анастасия Ищенко — дизайнер интерьера, Благовещенск" width="380" height="507" loading="lazy">
+        <div class="about__media">
+          <div class="about__photo">
+            <img src="img/about-800.webp" alt="Анастасия Ищенко — дизайнер интерьера, Благовещенск" width="440" height="587" loading="lazy">
+          </div>
+          <div class="about__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21c-1-7 0-13 3-18"/><path d="M13.5 9C10.5 9.5 8.5 11.5 8 14"/><path d="M14.5 6c2.5.8 4.1 2.6 4.5 5"/></svg>
+          </div>
         </div>
         <div class="about__text">
-          <h2>Обо мне</h2>
+          <div class="section__eyebrow">Обо мне</div>
+          <h2>Дизайн — моя <i class="accent-i">профессия и любовь</i></h2>
           <p>Меня зовут Анастасия Ищенко. Я дизайнер-фрилансер, в сфере дизайна работаю с 2019 года. Знаю все нюансы дизайна и перепланировки, создаю функциональное пространство для своих клиентов.</p>
+          <p>Работаю и с крошечными помещениями, и с большими домами: в портфолио есть и санузел 2,5 м², и коттедж на 200 м². Маленькая площадь — не приговор, это просто другая задача.</p>
           <div class="about__facts">
             <div class="fact"><b>с 2019</b><span>года в дизайне</span></div>
             <div class="fact"><b>14</b><span>проектов в портфолио</span></div>
@@ -199,53 +246,50 @@
         </div>
       </div>
     </div>
+    <div class="wave" style="margin-top:92px;margin-bottom:-92px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#eee3d0" d="M0,36 C220,70 380,6 580,26 C780,46 900,86 1100,66 C1260,50 1350,20 1440,40 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- ПОРТФОЛИО -->
-  <section class="section section--dark" id="projects">
+  <section class="section section--soft" id="projects">
     <div class="container">
-      <div class="section__head">
-        <h2 class="section__title">Портфолио</h2>
-        <p class="section__lead">Фрагменты моих избранных проектов</p>
+      <div class="section__head section__head--split">
+        <div>
+          <div class="section__eyebrow">Проекты</div>
+          <h2 class="section__title">Пространства, в которых <i>уже живут</i></h2>
+        </div>
+        <a class="arrow-link" href="portfolio.html">Все проекты <span>&rarr;</span></a>
       </div>
     </div>
     <div class="slider">
       <button class="slider__btn slider__btn--prev" aria-label="Назад">&#10094;</button>
       <div class="slider__track">
-        <img src="img/preview/01.webp" alt="Дизайн интерьера гостиной — проект в Благовещенске" loading="lazy">
-        <img src="img/preview/02.webp" alt="Дизайн интерьера кухни-гостиной — проект в Благовещенске" loading="lazy">
-        <img src="img/preview/03.webp" alt="Дизайн интерьера квартиры — визуализация" loading="lazy">
-        <img src="img/preview/04.webp" alt="Интерьер жилой комнаты — дизайн-проект" loading="lazy">
-        <img src="img/preview/05.webp" alt="Интерьер спальни — дизайн-проект" loading="lazy">
-        <img src="img/preview/06.webp" alt="Дизайн интерьера — реализованный проект" loading="lazy">
-        <img src="img/preview/07.webp" alt="Интерьер кухни — 3D-визуализация" loading="lazy">
-        <img src="img/preview/08.webp" alt="Дизайн квартиры в Благовещенске — фрагмент проекта" loading="lazy">
-        <img src="img/preview/09.webp" alt="Интерьер гостиной — фрагмент дизайн-проекта" loading="lazy">
-        <img src="img/preview/10.webp" alt="Дизайн интерьера детской комнаты" loading="lazy">
-        <img src="img/preview/11.webp" alt="Интерьер ванной комнаты — дизайн-проект" loading="lazy">
-        <img src="img/preview/12.webp" alt="Дизайн интерьера — визуализация комнаты" loading="lazy">
-        <img src="img/preview/13.webp" alt="Интерьер квартиры — дизайн-проект в Благовещенске" loading="lazy">
-        <img src="img/preview/14.webp" alt="Дизайн жилого интерьера — фрагмент проекта" loading="lazy">
-        <img src="img/preview/15.webp" alt="Интерьер кухни-столовой — визуализация" loading="lazy">
-        <img src="img/preview/16.webp" alt="Дизайн интерьера гостиной — 3D-визуализация" loading="lazy">
-        <img src="img/preview/17.webp" alt="Интерьер комнаты — реализованный проект" loading="lazy">
-        <img src="img/preview/18.webp" alt="Дизайн интерьера квартиры — фрагмент" loading="lazy">
-        <img src="img/preview/19.webp" alt="Интерьер жилого помещения — дизайн-проект" loading="lazy">
-        <img src="img/preview/20.webp" alt="Дизайн интерьера — избранный проект" loading="lazy">
+        <a class="pcard" href="portfolio.html#p01-kvartira-57"><img src="img/portfolio/p01-kvartira-57/01.webp" alt="Квартира 2-комнатная, 57 м² — Благовещенск" loading="lazy"><div class="pcard__name">Квартира 2-комнатная, 57 м²</div><div class="pcard__meta">Благовещенск · 2025</div></a>
+        <a class="pcard" href="portfolio.html#p02-kvartira-61"><img src="img/portfolio/p02-kvartira-61/01.webp" alt="Квартира 2-комнатная, 61 м² — Благовещенск" loading="lazy"><div class="pcard__name">Квартира 2-комнатная, 61 м²</div><div class="pcard__meta">Благовещенск · 2024</div></a>
+        <a class="pcard" href="portfolio.html#p03-kvartira-72"><img src="img/portfolio/p03-kvartira-72/01.webp" alt="Квартира 3-комнатная, 72 м² — Благовещенск" loading="lazy"><div class="pcard__name">Квартира 3-комнатная, 72 м²</div><div class="pcard__meta">Благовещенск · 2024</div></a>
+        <a class="pcard" href="portfolio.html#p04-kvartira-72-2022"><img src="img/portfolio/p04-kvartira-72-2022/01.webp" alt="Квартира 3-комнатная, 72 м² — Благовещенск, 2022" loading="lazy"><div class="pcard__name">Квартира 3-комнатная, 72 м²</div><div class="pcard__meta">Благовещенск · 2022</div></a>
+        <a class="pcard" href="portfolio.html#p05-detskaya-15"><img src="img/portfolio/p05-detskaya-15/01.webp" alt="Детская комната, 15 м² — Благовещенск" loading="lazy"><div class="pcard__name">Детская комната, 15 м²</div><div class="pcard__meta">Благовещенск · 2022</div></a>
+        <a class="pcard" href="portfolio.html#p06-komnata-16"><img src="img/portfolio/p06-komnata-16/01.webp" alt="Комната с зоной спальни, 16 м² — Благовещенск" loading="lazy"><div class="pcard__name">Комната с зоной спальни, 16 м²</div><div class="pcard__meta">Благовещенск · 2022</div></a>
+        <a class="pcard" href="portfolio.html#p07-kvartira-74"><img src="img/portfolio/p07-kvartira-74/01.webp" alt="Квартира, 74 м² — Благовещенск" loading="lazy"><div class="pcard__name">Квартира, 74 м²</div><div class="pcard__meta">Благовещенск · 2021</div></a>
+        <a class="pcard" href="portfolio.html#p08-spalnya-155"><img src="img/portfolio/p08-spalnya-155/01.webp" alt="Спальня, 15,5 м² — Владивосток" loading="lazy"><div class="pcard__name">Спальня, 15,5 м²</div><div class="pcard__meta">Владивосток · 2021</div></a>
+        <a class="pcard" href="portfolio.html#p09-detskaya-malchik"><img src="img/portfolio/p09-detskaya-malchik/01.webp" alt="Детская комната для мальчика, 15 м² — Благовещенск" loading="lazy"><div class="pcard__name">Детская для мальчика, 15 м²</div><div class="pcard__meta">Благовещенск · 2021</div></a>
+        <a class="pcard" href="portfolio.html#p10-vannaya-7"><img src="img/portfolio/p10-vannaya-7/01.webp" alt="Ванная комната, 7 м² — Благовещенск" loading="lazy"><div class="pcard__name">Ванная комната, 7 м²</div><div class="pcard__meta">Благовещенск · 2021</div></a>
+        <a class="pcard" href="portfolio.html#p11-sanuzel-hrushchevka"><img src="img/portfolio/p11-sanuzel-hrushchevka/01.webp" alt="Санузел в хрущёвке, 2,5 м² — Благовещенск" loading="lazy"><div class="pcard__name">Санузел в «хрущёвке», 2,5 м²</div><div class="pcard__meta">Благовещенск</div></a>
+        <a class="pcard" href="portfolio.html#p12-kuhnya-15"><img src="img/portfolio/p12-kuhnya-15/01.webp" alt="Кухня в современном стиле, 15 м² — Благовещенск" loading="lazy"><div class="pcard__name">Кухня в современном стиле, 15 м²</div><div class="pcard__meta">Благовещенск</div></a>
+        <a class="pcard" href="portfolio.html#p13-kottedzh-200"><img src="img/portfolio/p13-kottedzh-200/01.webp" alt="Коттедж, 200 м² — Свободный" loading="lazy"><div class="pcard__name">Коттедж, 200 м²</div><div class="pcard__meta">Свободный · 2021</div></a>
+        <a class="pcard" href="portfolio.html#p14-kvartira-58"><img src="img/portfolio/p14-kvartira-58/01.webp" alt="Квартира, 58 м² — Благовещенск" loading="lazy"><div class="pcard__name">Квартира, 58 м²</div><div class="pcard__meta">Благовещенск · 2021</div></a>
       </div>
       <button class="slider__btn slider__btn--next" aria-label="Вперёд">&#10095;</button>
     </div>
-    <div class="portfolio-cta">
-      <a class="btn" href="portfolio.html">Смотреть все проекты</a>
-    </div>
+    <div class="wave" style="margin-top:56px;margin-bottom:-68px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#f6efe3" d="M0,50 C190,14 350,74 550,56 C750,38 890,2 1090,24 C1250,42 1350,70 1440,48 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- ТАРИФЫ -->
-  <section class="section section--soft" id="costs">
+  <section class="section" id="costs">
     <div class="container">
       <div class="section__head">
-        <h2 class="section__title">Мои тарифы</h2>
-        <p class="section__lead">Выберите тариф, который подходит вам, свяжитесь со мной и закажите дизайн-проект.</p>
+        <div class="section__eyebrow">Тарифы</div>
+        <h2 class="section__title">Сколько это стоит</h2>
+        <p class="section__lead">Выберите формат, который подходит вам, — и напишите мне. Обсудим детали и сроки.</p>
       </div>
       <div class="prices">
         <article class="price">
@@ -255,9 +299,10 @@
             <li>Два-три планировочных решения</li>
             <li>Расстановка мебели и оборудования с привязками</li>
           </ul>
-          <a class="btn" href="#contacts">Заказать проект</a>
+          <a class="btn btn--light" href="brief.html">Заказать проект</a>
         </article>
-        <article class="price">
+        <article class="price price--main">
+          <div class="price__tag">Чаще всего выбирают</div>
           <h3>Полный проект</h3>
           <div class="price__value">1700 ₽<small>/м²</small></div>
           <ul>
@@ -266,7 +311,7 @@
             <li>Рабочая документация</li>
             <li>Спецификация мебели</li>
           </ul>
-          <a class="btn" href="#contacts">Заказать проект</a>
+          <a class="btn" href="brief.html">Заказать проект</a>
         </article>
         <article class="price">
           <h3>Авторский надзор</h3>
@@ -276,47 +321,75 @@
             <li>Работа с подрядчиками</li>
             <li>Подбор отделочных материалов (аналогов)</li>
           </ul>
-          <a class="btn" href="#contacts">Заказать проект</a>
+          <a class="btn btn--light" href="brief.html">Заказать проект</a>
         </article>
       </div>
     </div>
+    <div class="wave" style="margin-top:92px;margin-bottom:-92px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#eee3d0" d="M0,42 C210,76 370,10 570,30 C770,50 890,88 1090,68 C1250,52 1350,18 1440,38 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- КАК Я РАБОТАЮ -->
-  <section class="section" id="steps">
+  <section class="section section--soft" id="steps">
     <div class="container">
       <div class="section__head">
+        <div class="section__eyebrow">Процесс</div>
         <h2 class="section__title">Как я работаю</h2>
+        <p class="section__lead">Четыре этапа — от первого разговора до готового интерьера</p>
       </div>
       <div class="steps">
+        <svg class="steps__line" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,20 C110,-4 220,44 330,20 C440,-4 560,44 670,20 C780,-4 890,44 1000,20"/>
+        </svg>
         <article class="step">
-          <img src="img/icons/step-1.webp" alt="" width="110" height="110" loading="lazy">
+          <div class="step__num" aria-hidden="true"></div>
           <h3>Предварительный эскиз</h3>
           <p>Определение стилистического решения интерьера, подготовка технических заданий, планировочных решений, коллажей для всех помещений.</p>
         </article>
         <article class="step">
-          <img src="img/icons/step-2.webp" alt="" width="110" height="110" loading="lazy">
+          <div class="step__num" aria-hidden="true"></div>
           <h3>Визуализация проекта</h3>
           <p>Детальная визуализация каждой комнаты. 3D-изображения учитывают ранее выбранные элементы интерьера и отделочные материалы.</p>
         </article>
         <article class="step">
-          <img src="img/icons/step-3.webp" alt="" width="110" height="110" loading="lazy">
+          <div class="step__num" aria-hidden="true"></div>
           <h3>Рабочая документация</h3>
           <p>Создание рабочей документации для проекта дизайна интерьера: спецификации и планировочное решение с мебелью.</p>
         </article>
         <article class="step">
-          <img src="img/icons/step-4.webp" alt="" width="110" height="110" loading="lazy">
+          <div class="step__num" aria-hidden="true"></div>
           <h3>Авторский надзор</h3>
           <p>Контроль соответствия строительных работ проектному плану. Я регулярно посещаю объект и всё контролирую.</p>
         </article>
       </div>
     </div>
+    <div class="wave" style="margin-top:76px;margin-bottom:-68px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#f6efe3" d="M0,48 C200,12 360,72 560,54 C760,36 900,4 1100,26 C1250,42 1350,68 1440,46 L1440,86 L0,86 Z"/></svg></div>
+  </section>
+
+  <!-- ПОЧЕМУ СО МНОЙ -->
+  <section class="section">
+    <div class="container">
+      <div class="why">
+        <div class="why__media">
+          <img src="img/preview/06.webp" alt="Фрагмент реализованного дизайн-проекта" loading="lazy">
+        </div>
+        <div class="why__panel">
+          <h2>Что вы получаете</h2>
+          <ul>
+            <li>Опыт с 2019 года и 14 проектов в трёх городах</li>
+            <li>Комплект документации, по которому работают строители</li>
+            <li>Планировка, отжатая до сантиметра, — даже на 2,5 м²</li>
+            <li>Авторский надзор: контроль на объекте и подбор материалов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section--soft" id="faq">
+  <section class="section section--soft" id="faq" style="margin-top:40px">
     <div class="container">
       <div class="section__head">
+        <div class="section__eyebrow">Вопросы</div>
         <h2 class="section__title">Частые вопросы</h2>
       </div>
       <div class="faq">
@@ -338,23 +411,25 @@
         </details>
       </div>
     </div>
+    <div class="wave" style="margin-top:76px;margin-bottom:-68px" aria-hidden="true"><svg viewBox="0 0 1440 86" preserveAspectRatio="none"><path fill="#f6efe3" d="M0,40 C180,84 330,10 520,30 C700,49 820,92 1010,72 C1180,54 1300,14 1440,34 L1440,86 L0,86 Z"/></svg></div>
   </section>
 
   <!-- КОНТАКТЫ -->
-  <section class="section section--dark" id="contacts">
+  <section class="section" id="contacts">
     <div class="container">
-      <div class="section__head">
-        <h2 class="section__title">Контакты</h2>
-        <p class="section__lead">Свяжитесь со мной любым удобным способом — обсудим ваш проект</p>
-      </div>
-      <div class="contacts__grid">
-        <div class="contacts__list">
-          <a href="tel:+79145389046">+7 914 538-90-46</a>
-          <a href="mailto:389046@mail.ru">389046@mail.ru</a>
-          <span class="muted">Россия, Амурская область, г. Благовещенск</span>
-          <span><a class="btn" href="brief.html">Заполнить бриф на проект</a></span>
+      <div class="cta">
+        <div class="cta__photo">
+          <img src="img/preview/09.webp" alt="Фрагмент интерьера из портфолио" loading="lazy">
         </div>
-        <div>
+        <div class="cta__body">
+          <div class="cta__eyebrow">Связаться</div>
+          <h2>Давайте создадим пространство, <i>где вам хорошо</i></h2>
+          <p class="cta__note">Напишите или позвоните — расскажу, с чего начать, и отвечу на вопросы. Это ни к чему не обязывает.</p>
+          <div class="contacts__list">
+            <a href="tel:+79145389046">+7 914 538-90-46</a>
+            <a href="mailto:389046@mail.ru">389046@mail.ru</a>
+            <span class="muted">Россия, Амурская область, г. Благовещенск</span>
+          </div>
           <div class="socials">
             <a href="https://wa.me/79145389046" target="_blank" rel="noopener nofollow" aria-label="WhatsApp">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3.1 4.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.1-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.5-.4z"/></svg>
@@ -362,12 +437,13 @@
             <a href="https://t.me/fornastya" target="_blank" rel="noopener nofollow" aria-label="Telegram">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m4.6 6.9c.2 0 .5.1.4.5l-1.6 7.7c-.1.4-.4.5-.8.3l-2.4-1.8-1.2 1.1c-.1.1-.2.2-.5.2l.2-2.5 4.6-4.1c.2-.2 0-.3-.3-.1l-5.6 3.5-2.4-.8c-.5-.2-.5-.5.1-.8l9-3.4c.1-.1.3-.1.5.2z"/></svg>
             </a>
-            <a href="https://www.instagram.com/anastasia_prodesign/" target="_blank" rel="noopener nofollow" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.2a6.6 6.6 0 1 0 0 13.2 6.6 6.6 0 0 0 0-13.2m0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6M19.4 5.1a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/></svg>
-            </a>
             <a href="mailto:389046@mail.ru" aria-label="Почта">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m8 7L4.5 6h15zM4 8.2V18h16V8.2l-8 5.3z"/></svg>
             </a>
+          </div>
+          <p class="socials__note">Instagram*: @anastasia_prodesign</p>
+          <div class="cta__btn">
+            <a class="btn btn--gold" href="brief.html">Заполнить бриф на проект</a>
           </div>
         </div>
       </div>
@@ -377,17 +453,49 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <span>© <span id="year">2026</span> Анастасия Ищенко — дизайн интерьера, Благовещенск</span>
-    <span><a href="portfolio.html">Портфолио</a> · <a href="brief.html">Бриф на проект</a></span>
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="footer__logo" href="#top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 21c-1-7 0-13 3-18"/><path d="M13.5 9C10.5 9.5 8.5 11.5 8 14"/><path d="M14.5 6c2.5.8 4.1 2.6 4.5 5"/></svg>
+          Анастасия Ищенко
+        </a>
+        <p>Дизайн интерьера квартир и частных домов. Благовещенск, Амурская область — и другие города по договорённости.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="portfolio.html">Портфолио</a></li>
+          <li><a href="#costs">Цены</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79145389046">+7 914 538-90-46</a></li>
+          <li><a href="mailto:389046@mail.ru">389046@mail.ru</a></li>
+          <li><a href="https://wa.me/79145389046" target="_blank" rel="noopener nofollow">WhatsApp</a></li>
+          <li><a href="https://t.me/fornastya" target="_blank" rel="noopener nofollow">Telegram</a></li>
+          <li><span class="footer__nolink">Instagram*: @anastasia_prodesign</span></li>
+        </ul>
+      </div>
+      <div class="footer__arch">
+        <img src="img/preview/03.webp" alt="Фрагмент дизайн-проекта интерьера" loading="lazy">
+      </div>
+    </div>
   </div>
+  <div class="footer__meta">* Instagram — продукт компании Meta, признанной в Российской Федерации экстремистской организацией и запрещённой.</div>
+  <div class="footer__bar">© <span id="year">2026</span> Анастасия Ищенко. Все права защищены.</div>
 </footer>
 
 <!-- лайтбокс -->
 <div class="lightbox" role="dialog" aria-label="Просмотр фото">
   <button class="lightbox__close" aria-label="Закрыть">&times;</button>
   <button class="lightbox__prev" aria-label="Назад">&#10094;</button>
-  <img alt="">
+  <img src="" alt="">
   <button class="lightbox__next" aria-label="Вперёд">&#10095;</button>
   <div class="lightbox__counter"></div>
 </div>

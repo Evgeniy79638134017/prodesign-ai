@@ -52,7 +52,8 @@ if (lb) {
   const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
 
   document.querySelectorAll('.slider__track').forEach((track) => {
-    const imgs = [...track.querySelectorAll('img')];
+    // картинки-ссылки (карточки проектов) в лайтбокс не забираем — они ведут на страницу
+    const imgs = [...track.querySelectorAll('img')].filter((img) => !img.closest('a'));
     imgs.forEach((img, i) => {
       img.addEventListener('click', () => {
         group = imgs;

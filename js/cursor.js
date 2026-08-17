@@ -14,7 +14,7 @@
   fit();
   addEventListener('resize', fit);
 
-  const COLORS = ['#ffbe49', '#ffd98a', '#8fc3d4', '#ffffff'];
+  const COLORS = ['#c8a24b', '#e8d6ab', '#8a9b74', '#fdfaf4'];
   const parts = [];
   let lastX = -1, lastY = -1;
 
