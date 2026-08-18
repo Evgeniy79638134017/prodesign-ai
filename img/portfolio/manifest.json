@@ -27,6 +27,18 @@
     ]
   },
   {
+    "slug": "p15-kvartira-52",
+    "title": "Квартира, 52 м²",
+    "place": "г. Благовещенск",
+    "year": "2026",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp"
+    ]
+  },
+  {
     "slug": "p03-kvartira-72",
     "title": "Квартира 3-комнатная, 72 м²",
     "place": "г. Благовещенск",
@@ -44,10 +56,22 @@
     ]
   },
   {
-    "slug": "p04-kvartira-72-2022",
-    "title": "Квартира 3-комнатная, 72 м²",
+    "slug": "p16-kvartira-38",
+    "title": "Квартира, 38 м²",
     "place": "г. Благовещенск",
-    "year": "2022",
+    "year": "2026",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp"
+    ]
+  },
+  {
+    "slug": "p17-kottedzh-80",
+    "title": "Коттедж, 80 м²",
+    "place": "г. Благовещенск",
+    "year": "2026",
     "files": [
       "01.webp",
       "02.webp",
@@ -58,42 +82,7 @@
       "07.webp",
       "08.webp",
       "09.webp",
-      "10.webp",
-      "11.webp",
-      "12.webp",
-      "13.webp",
-      "14.webp",
-      "15.webp",
-      "16.webp",
-      "17.webp",
-      "18.webp",
-      "19.webp"
-    ]
-  },
-  {
-    "slug": "p05-detskaya-15",
-    "title": "Детская комната, 15 м²",
-    "place": "г. Благовещенск",
-    "year": "2022",
-    "files": [
-      "01.webp",
-      "02.webp",
-      "03.webp",
-      "04.webp",
-      "05.webp"
-    ]
-  },
-  {
-    "slug": "p06-komnata-16",
-    "title": "Комната с зоной спальни, 16 м²",
-    "place": "г. Благовещенск",
-    "year": "2022",
-    "files": [
-      "01.webp",
-      "02.webp",
-      "03.webp",
-      "04.webp",
-      "05.webp"
+      "10.webp"
     ]
   },
   {
@@ -228,6 +217,59 @@
       "07.webp",
       "08.webp",
       "09.webp"
+    ]
+  },
+  {
+    "slug": "p04-kvartira-72-2022",
+    "title": "Квартира 3-комнатная, 72 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp",
+      "06.webp",
+      "07.webp",
+      "08.webp",
+      "09.webp",
+      "10.webp",
+      "11.webp",
+      "12.webp",
+      "13.webp",
+      "14.webp",
+      "15.webp",
+      "16.webp",
+      "17.webp",
+      "18.webp",
+      "19.webp"
+    ]
+  },
+  {
+    "slug": "p05-detskaya-15",
+    "title": "Детская комната, 15 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
+    ]
+  },
+  {
+    "slug": "p06-komnata-16",
+    "title": "Комната с зоной спальни, 16 м²",
+    "place": "г. Благовещенск",
+    "year": "2022",
+    "files": [
+      "01.webp",
+      "02.webp",
+      "03.webp",
+      "04.webp",
+      "05.webp"
     ]
   }
 ]

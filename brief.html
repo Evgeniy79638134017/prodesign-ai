@@ -72,6 +72,17 @@
     .btn--ghost { background: transparent; color: var(--ink); border: 1px solid #c9cfd4; }
     .btn--ghost:hover { background: #f0f2f4; box-shadow: none; transform: none; color: var(--ink); }
 
+    .brief__consent {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 16px 18px; margin-bottom: 18px; transition: border-color .2s ease, background .2s ease;
+    }
+    .brief__consent label { display: flex; gap: 11px; align-items: flex-start; cursor: pointer; }
+    .brief__consent input { accent-color: var(--accent); width: 19px; height: 19px; flex: 0 0 auto; margin-top: 1px; }
+    .brief__consent span { font-size: 15px; line-height: 1.55; }
+    .brief__consent a { color: var(--sage-ink); text-decoration: underline; }
+    .brief__consent-note { color: var(--muted); font-size: 13.5px; margin: 9px 0 0 30px; line-height: 1.5; }
+    .brief__consent--warn { border-color: #8f4e2f; background: #fbf1ea; }
+
     .brief__send { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
     .btn--tg { background: #4d7a94; }
     .btn--tg:hover { background: #3f6579; }
@@ -137,6 +148,13 @@
 
         <div class="brief__result" id="result">
           <h2 style="font-size:22px;margin:26px 0 12px">Бриф готов — отправьте его Анастасии</h2>
+          <div class="brief__consent">
+            <label>
+              <input type="checkbox" id="consent">
+              <span>Я согласен на обработку моих персональных данных и ознакомлен с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</span>
+            </label>
+            <p class="brief__consent-note">Анкета никуда не отправляется сама: она сохраняется только в вашем браузере. Данные попадут к Анастасии, когда вы сами перешлёте ей текст.</p>
+          </div>
           <div class="brief__send">
             <button type="button" class="btn" id="sendWa">Отправить в WhatsApp</button>
             <button type="button" class="btn btn--tg" id="sendTg">Отправить в Telegram</button>
@@ -182,6 +200,7 @@
           <li><a href="mailto:389046@mail.ru">389046@mail.ru</a></li>
           <li><a href="https://wa.me/79145389046" target="_blank" rel="noopener nofollow">WhatsApp</a></li>
           <li><a href="https://t.me/fornastya" target="_blank" rel="noopener nofollow">Telegram</a></li>
+          <li><span class="footer__nolink">MAX — по номеру телефона</span></li>
           <li><span class="footer__nolink">Instagram*: @anastasia_prodesign</span></li>
         </ul>
       </div>
@@ -191,6 +210,7 @@
     </div>
   </div>
   <div class="footer__meta">* Instagram — продукт компании Meta, признанной в Российской Федерации экстремистской организацией и запрещённой.</div>
+  <div class="footer__req">Ищенко Анастасия, самозанятая, ИНН 280111994026 · <a href="privacy.html">Политика обработки персональных данных</a></div>
   <div class="footer__bar">© <span id="year">2026</span> Анастасия Ищенко. Все права защищены.</div></footer>
 
 <script src="js/main.js" defer></script>
@@ -515,6 +535,17 @@ function buildText() {
 
 /* ---------- отправка ---------- */
 const hintEl = document.getElementById('sendHint');
+function consentOk() {
+  const box = document.getElementById('consent');
+  if (box && !box.checked) {
+    const wrap = box.closest('.brief__consent');
+    wrap.classList.add('brief__consent--warn');
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function () { wrap.classList.remove('brief__consent--warn'); }, 2500);
+    return false;
+  }
+  return true;
+}
 function copyThen(fn, okMsg) {
   const text = buildText();
   const go = () => fn(text);
@@ -523,6 +554,7 @@ function copyThen(fn, okMsg) {
   } else go();
 }
 document.getElementById('sendWa').addEventListener('click', () => {
+  if (!consentOk()) return;
   const text = buildText();
   if (text.length < 1500) {
     window.open('https://wa.me/79145389046?text=' + encodeURIComponent(text), '_blank', 'noopener');
@@ -531,10 +563,11 @@ document.getElementById('sendWa').addEventListener('click', () => {
       'Бриф скопирован в буфер. В открывшемся WhatsApp нажмите в поле сообщения «вставить» и отправьте.');
   }
 });
-document.getElementById('sendTg').addEventListener('click', () =>
+document.getElementById('sendTg').addEventListener('click', () => consentOk() &&
   copyThen(() => window.open('https://t.me/fornastya', '_blank', 'noopener'),
     'Бриф скопирован в буфер. В открывшемся Telegram нажмите в поле сообщения «вставить» и отправьте.'));
 document.getElementById('sendMail').addEventListener('click', () => {
+  if (!consentOk()) return;
   const text = buildText();
   copyThen(() => {
     location.href = 'mailto:389046@mail.ru?subject=' +
@@ -542,7 +575,7 @@ document.getElementById('sendMail').addEventListener('click', () => {
       '&body=' + encodeURIComponent(text.length < 1800 ? text : 'Бриф скопирован в буфер обмена — вставьте его сюда (Ctrl+V).');
   }, 'Бриф скопирован в буфер. Если письмо открылось без текста — вставьте его в тело письма (Ctrl+V).');
 });
-document.getElementById('sendCopy').addEventListener('click', () =>
+document.getElementById('sendCopy').addEventListener('click', () => consentOk() &&
   copyThen(() => {}, 'Бриф скопирован в буфер обмена — вставьте его в любой мессенджер или письмо.'));
 
 /* ---------- автосохранение черновика ---------- */
