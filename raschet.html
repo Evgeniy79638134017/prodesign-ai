@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сколько стоит дизайн-проект вашей квартиры — расчёт за минуту | Анастасия Ищенко, Благовещенск</title>
+  <meta name="description" content="Укажите площадь квартиры или дома и увидите стоимость планировки, полного дизайн-проекта и авторского надзора. Рядом — ориентир по бюджету ремонта в Благовещенске, чтобы понимать, какую долю занимает проект.">
+  <meta name="geo.region" content="RU-AMU">
+  <meta name="geo.placename" content="Благовещенск">
+  <link rel="canonical" href="https://prodesign-ai.ru/raschet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://prodesign-ai.ru/raschet.html">
+  <meta property="og:title" content="Сколько стоит дизайн-проект вашей квартиры — расчёт за минуту">
+  <meta property="og:description" content="Площадь → стоимость планировки, полного проекта и надзора. Плюс ориентир по бюджету ремонта в Благовещенске.">
+  <meta property="og:image" content="https://prodesign-ai.ru/img/preview/06.webp">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebApplication","name":"Расчёт стоимости дизайн-проекта","url":"https://prodesign-ai.ru/raschet.html",
+     "applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},
+     "description":"Площадь квартиры или дома переводится в стоимость планировочного решения, полного дизайн-проекта и авторского надзора по действующим тарифам дизайнера. Ничего не отправляется: расчёт делается в браузере.",
+     "provider":{"@id":"https://prodesign-ai.ru/#service"}},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Главная","item":"https://prodesign-ai.ru/"},
+      {"@type":"ListItem","position":2,"name":"Расчёт стоимости","item":"https://prodesign-ai.ru/raschet.html"}]}
+  ]}
+  </script>
+  <style>
+    .calc { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: start; max-width: 1040px; margin: 0 auto; }
+    .calc__panel {
+      background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 34px 32px;
+      box-shadow: 0 8px 26px rgba(70, 60, 40, .07);
+    }
+    .calc__label { display: block; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--sage-ink); margin-bottom: 12px; }
+    .calc__area { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .calc__area input {
+      width: 120px; font: 600 34px/1 'Playfair Display', serif; color: var(--ink); background: transparent;
+      border: 0; border-bottom: 2px solid var(--sage-soft); padding: 4px 0; outline: none;
+    }
+    .calc__area input:focus { border-bottom-color: var(--olive); }
+    .calc__area span { color: var(--muted); font-size: 18px; }
+    .calc__range { width: 100%; margin: 12px 0 6px; accent-color: var(--olive); }
+    .calc__scale { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); margin-bottom: 20px; }
+    .calc__presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .calc__presets button {
+      font: 500 14px/1 'Manrope', sans-serif; color: var(--olive); background: var(--cream-2);
+      border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: background .2s, color .2s;
+    }
+    .calc__presets button:hover, .calc__presets button.on { background: var(--olive); color: #f1ecdf; border-color: var(--olive); }
+    .calc__seg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; background: var(--cream-2); border-radius: 14px; padding: 5px; }
+    .calc__seg button {
+      font: 500 14px/1.3 'Manrope', sans-serif; color: var(--muted); background: transparent; border: 0;
+      border-radius: 10px; padding: 11px 8px; cursor: pointer; transition: background .2s, color .2s;
+    }
+    .calc__seg button.on { background: var(--card); color: var(--ink); box-shadow: 0 2px 8px rgba(70, 60, 40, .1); }
+    .calc__seg small { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .calc__hint { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin-top: 12px; }
+
+    .calc__out { display: grid; gap: 16px; }
+    .row {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px 20px; align-items: center;
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px 26px;
+    }
+    .row--main { background: var(--olive); border-color: var(--olive); color: #f1ecdf; }
+    .row h3 { font-size: 19px; margin: 0; }
+    .row--main h3 { color: #f1ecdf; }
+    .row p { grid-column: 1; font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
+    .row--main p { color: var(--on-olive); }
+    .row__sum { grid-column: 2; grid-row: 1 / span 2; font: 600 30px/1 'Playfair Display', serif; color: var(--ink); white-space: nowrap; text-align: right; }
+    .row--main .row__sum { color: var(--gold-ink); }
+    .row__sum small { display: block; font: 500 12.5px/1.4 'Manrope', sans-serif; color: var(--muted); margin-top: 6px; }
+    .row--main .row__sum small { color: var(--on-olive); }
+    .row__tag { grid-column: 1 / -1; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-ink); }
+
+    .ctx { background: var(--cream-2); border-radius: 22px; padding: 22px 26px; margin-top: 4px; }
+    .ctx h3 { font-size: 18px; margin-bottom: 8px; }
+    .ctx p { font-size: 14.5px; line-height: 1.6; color: #4c463c; margin: 0 0 8px; }
+    .ctx b { color: var(--ink); }
+    .ctx__share { font: 600 26px/1 'Playfair Display', serif; color: var(--terra-ink); white-space: nowrap; }
+    .ctx__foot { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-top: 10px; }
+
+    .calc__send { margin-top: 8px; }
+    .calc__send p { font-size: 15px; color: #4c463c; margin-bottom: 14px; line-height: 1.6; }
+    .calc__btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .calc__copied { font-size: 13.5px; color: var(--sage-ink); margin-top: 10px; min-height: 1.4em; }
+
+    @media (max-width: 900px) {
+      .calc { grid-template-columns: 1fr; gap: 26px; }
+      .calc__panel { padding: 28px 22px; }
+      .row { padding: 18px 20px; }
+      .row__sum { font-size: 25px; }
+    }
+    @media (max-width: 420px) {
+      .row { grid-template-columns: 1fr; }
+      .row__sum { grid-column: 1; grid-row: auto; text-align: left; margin-top: 6px; }
+      .calc__seg { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header scrolled">
+  <div class="header__inner">
+    <a class="header__logo" href="index.html" aria-label="Анастасия Ищенко — на главную">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 21c-1-7 0-13 3-18"/><path d="M13.5 9C10.5 9.5 8.5 11.5 8 14"/><path d="M14.5 6c2.5.8 4.1 2.6 4.5 5"/></svg>
+      Анастасия Ищенко
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="index.html#services">Услуги</a>
+      <a href="index.html#about">Обо мне</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="index.html#costs">Цены</a>
+      <a href="sovety/index.html">Советы</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
+    <div class="header__cta">
+      <a class="btn" href="index.html#contacts">Обсудить проект</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero page-hero--art">
+    <div class="container">
+      <nav class="crumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a> <span>·</span>
+        <a href="index.html#costs">Цены</a>
+      </nav>
+      <h1>Сколько будет стоить проект вашей квартиры</h1>
+      <p class="art__lead">Укажите площадь — и увидите цену планировки, полного проекта и надзора по моим тарифам. Рядом ориентир по бюджету ремонта в Благовещенске: так видно, какую долю занимает проект. Расчёт делается в браузере, никуда не отправляется.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc">
+
+        <div class="calc__panel">
+          <span class="calc__label">Площадь помещения</span>
+          <div class="calc__area">
+            <input id="area" type="number" inputmode="numeric" min="10" max="400" step="1" value="60" aria-label="Площадь в квадратных метрах">
+            <span>м²</span>
+          </div>
+          <input id="areaRange" class="calc__range" type="range" min="10" max="250" step="1" value="60" aria-label="Площадь, ползунок">
+          <div class="calc__scale"><span>10 м²</span><span>250 м²</span></div>
+          <div class="calc__presets" role="group" aria-label="Типовые площади">
+            <button type="button" data-area="40">Однушка · 40</button>
+            <button type="button" data-area="60" class="on">Двушка · 60</button>
+            <button type="button" data-area="80">Трёшка · 80</button>
+            <button type="button" data-area="150">Дом · 150</button>
+            <button type="button" data-area="5">Санузел · 5</button>
+          </div>
+
+          <span class="calc__label">Какой уровень ремонта планируете</span>
+          <div class="calc__seg" role="group" aria-label="Уровень ремонта">
+            <button type="button" data-lvl="43000">Индивидуальный<small>от 43 тыс. ₽/м²</small></button>
+            <button type="button" data-lvl="55000" class="on">Средний<small>около 55 тыс. ₽/м²</small></button>
+            <button type="button" data-lvl="60000">Выше среднего<small>около 60 тыс. ₽/м²</small></button>
+          </div>
+          <p class="calc__hint">Уровень нужен только для ориентира по бюджету ремонта — на стоимость проекта он не влияет. Цифры за м² с материалами взяты из открытых тарифов подрядчика «Бери ремонт» (Благовещенск) на сентябрь 2026 года.</p>
+        </div>
+
+        <div class="calc__out" aria-live="polite">
+          <div class="row">
+            <h3>Планировочное решение</h3>
+            <p>Два-три варианта планировки, расстановка мебели и оборудования с привязками. 250 ₽/м².</p>
+            <div class="row__sum" id="sumPlan">15 000 ₽</div>
+          </div>
+          <div class="row row--main">
+            <div class="row__tag">Чаще всего выбирают</div>
+            <h3>Полный дизайн-проект</h3>
+            <p>Планировки, 3D-визуализация всех комнат, рабочая документация, спецификация мебели. 1800 ₽/м².</p>
+            <div class="row__sum" id="sumFull">108 000 ₽</div>
+          </div>
+          <div class="row">
+            <h3>Авторский надзор</h3>
+            <p>15 000 ₽ в месяц, пока идёт ремонт. Для такой площади ремонт обычно длится <b id="months">4 месяца</b>.</p>
+            <div class="row__sum" id="sumNadzor">60 000 ₽<small>за весь ремонт</small></div>
+          </div>
+
+          <div class="ctx">
+            <h3>Для сравнения — бюджет ремонта</h3>
+            <p>Ремонт <span id="ctxArea">60 м²</span> с материалами при выбранном уровне — около <b id="ctxRepair">3,3 млн ₽</b>.</p>
+            <p>Полный проект от этой суммы — <span class="ctx__share" id="ctxShare">3,3 %</span></p>
+            <p>Проект держит смету: по рабочей документации бригада не импровизирует на объекте, а одинаковый объём можно отдать нескольким подрядчикам и сравнить цены. Переделка одного санузла обычно стоит дороже, чем весь проект.</p>
+            <p class="ctx__foot">Ориентир по ремонту не смета: точную цифру даёт только расчёт по вашему объекту. Стоимость проекта — по тарифам сайта, итог фиксируется в договоре. Информация не является публичной офертой.</p>
+          </div>
+
+          <div class="calc__send">
+            <p>Расчёт можно отправить мне одной кнопкой — отвечу, что в вашем случае имеет смысл заказывать, а что нет.</p>
+            <div class="calc__btns">
+              <a class="btn" id="sendWa" href="https://wa.me/79145389046" target="_blank" rel="noopener nofollow">Отправить в WhatsApp</a>
+              <a class="btn btn--light" id="sendTg" href="https://t.me/fornastya" target="_blank" rel="noopener nofollow">В Telegram</a>
+              <a class="btn btn--gold" href="brief.html">Заполнить бриф</a>
+            </div>
+            <div class="calc__copied" id="copied"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="art">
+        <h2>Что ещё почитать перед заказом</h2>
+        <p>Если сомневаетесь, нужен ли проект вообще, — <a href="sovety/zachem-nuzhen-dizajn-proekt.html">отвечаю честно, без рекламы</a>. Что именно вы получите на руки — <a href="sovety/chto-vhodit-v-dizajn-proekt.html">разбираю по листам</a>. А как не вылететь из бюджета — <a href="sovety/byudzhet-na-remont.html">в статье про бюджет ремонта</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="footer__logo" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 21c-1-7 0-13 3-18"/><path d="M13.5 9C10.5 9.5 8.5 11.5 8 14"/><path d="M14.5 6c2.5.8 4.1 2.6 4.5 5"/></svg>Анастасия Ищенко</a>
+        <p>Дизайн интерьера квартир и частных домов. Благовещенск, Амурская область — и другие города по договорённости.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="index.html#services">Услуги</a></li>
+          <li><a href="portfolio.html">Портфолио</a></li>
+          <li><a href="index.html#costs">Цены</a></li>
+          <li><a href="sovety/index.html">Советы и рекомендации</a></li>
+          <li><a href="brief.html">Бриф на проект</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79145389046">+7 914 538-90-46</a></li>
+          <li><a href="mailto:389046@mail.ru">389046@mail.ru</a></li>
+          <li><a href="https://wa.me/79145389046" target="_blank" rel="noopener nofollow">WhatsApp</a></li>
+          <li><a href="https://t.me/fornastya" target="_blank" rel="noopener nofollow">Telegram</a></li>
+          <li><span class="footer__nolink">MAX — по номеру телефона</span></li>
+          <li><span class="footer__nolink">Instagram*: @anastasia_prodesign</span></li>
+        </ul>
+      </div>
+      <div class="footer__arch">
+        <img src="img/preview/03.webp" alt="Фрагмент дизайн-проекта интерьера" loading="lazy">
+      </div>
+    </div>
+  </div>
+  <div class="footer__meta">* Instagram — продукт компании Meta, признанной в Российской Федерации экстремистской организацией и запрещённой.</div>
+  <div class="footer__req">Ищенко Анастасия Александровна, самозанятая, ИНН 280111994026 · <a href="privacy.html">Политика обработки персональных данных</a></div>
+  <div class="footer__bar">© <span id="year">2026</span> Анастасия Ищенко. Все права защищены.</div>
+</footer>
+
+<script src="js/metrika.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/cursor.js" defer></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function () {
+  var RATE_PLAN = 250, RATE_FULL = 1800, NADZOR_MONTH = 15000;
+  var area = document.getElementById('area');
+  var range = document.getElementById('areaRange');
+  var presets = document.querySelectorAll('.calc__presets button');
+  var levels = document.querySelectorAll('.calc__seg button');
+  var lvl = 55000;
+  var state = {};
+
+  function rub(n) { return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
+  function mln(n) {
+    if (n >= 1e6) { return (n / 1e6).toLocaleString('ru-RU', { maximumFractionDigits: 1 }) + ' млн ₽'; }
+    return Math.round(n / 1000).toLocaleString('ru-RU') + ' тыс. ₽';
+  }
+  function monthsFor(a) { return a <= 20 ? 1 : a <= 50 ? 3 : a <= 80 ? 4 : a <= 120 ? 5 : 6; }
+  function monthsWord(m) { return m + (m === 1 ? ' месяц' : m < 5 ? ' месяца' : ' месяцев'); }
+
+  function calc() {
+    var a = Math.max(5, Math.min(400, parseInt(area.value, 10) || 0));
+    var m = monthsFor(a);
+    var plan = a * RATE_PLAN, full = a * RATE_FULL, nadzor = m * NADZOR_MONTH, repair = a * lvl;
+    state = { area: a, plan: plan, full: full, months: m, nadzor: nadzor, repair: repair, lvl: lvl };
+
+    document.getElementById('sumPlan').textContent = rub(plan);
+    document.getElementById('sumFull').textContent = rub(full);
+    document.getElementById('sumNadzor').innerHTML = rub(nadzor) + '<small>за весь ремонт</small>';
+    document.getElementById('months').textContent = monthsWord(m);
+    document.getElementById('ctxArea').textContent = a + ' м²';
+    document.getElementById('ctxRepair').textContent = mln(repair);
+    document.getElementById('ctxShare').textContent = (full / repair * 100).toLocaleString('ru-RU', { maximumFractionDigits: 1 }) + ' %';
+
+    presets.forEach(function (b) { b.classList.toggle('on', parseInt(b.dataset.area, 10) === a); });
+    if (parseInt(range.value, 10) !== a) { range.value = Math.min(250, a); }
+  }
+
+  area.addEventListener('input', calc);
+  range.addEventListener('input', function () { area.value = range.value; calc(); });
+  presets.forEach(function (b) {
+    b.addEventListener('click', function () { area.value = b.dataset.area; calc(); });
+  });
+  levels.forEach(function (b) {
+    b.addEventListener('click', function () {
+      levels.forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on'); lvl = parseInt(b.dataset.lvl, 10); calc();
+    });
+  });
+
+  function message() {
+    return 'Здравствуйте, Анастасия! Посчитал(а) на сайте: ' + state.area + ' м². ' +
+      'Планировка ' + rub(state.plan) + ', полный проект ' + rub(state.full) +
+      ', надзор ' + rub(state.nadzor) + ' за ' + monthsWord(state.months) + '. ' +
+      'Хочу обсудить проект.';
+  }
+  function track() { if (window.goal) { goal('calc_contact', { area: state.area }); } }
+
+  document.getElementById('sendWa').addEventListener('click', function (e) {
+    e.preventDefault(); track();
+    window.open('https://wa.me/79145389046?text=' + encodeURIComponent(message()), '_blank', 'noopener');
+  });
+  document.getElementById('sendTg').addEventListener('click', function (e) {
+    e.preventDefault(); track();
+    var note = document.getElementById('copied');
+    var open = function () { window.open('https://t.me/fornastya', '_blank', 'noopener'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(message()).then(function () {
+        note.textContent = 'Расчёт скопирован — в открывшемся чате нажмите «вставить» и отправьте.'; open();
+      }, open);
+    } else { open(); }
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>
