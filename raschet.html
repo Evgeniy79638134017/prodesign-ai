@@ -170,8 +170,8 @@
         <div class="calc__out" aria-live="polite">
           <div class="row">
             <h3>Планировочное решение</h3>
-            <p>Два-три варианта планировки, расстановка мебели и оборудования с привязками. 250 ₽/м².</p>
-            <div class="row__sum" id="sumPlan">15 000 ₽</div>
+            <p>Два-три варианта планировки, расстановка мебели и оборудования с привязками. 300 ₽/м².</p>
+            <div class="row__sum" id="sumPlan">18 000 ₽</div>
           </div>
           <div class="row row--main">
             <div class="row__tag">Чаще всего выбирают</div>
@@ -181,8 +181,8 @@
           </div>
           <div class="row">
             <h3>Авторский надзор</h3>
-            <p>15 000 ₽ в месяц, пока идёт ремонт. Для такой площади ремонт обычно длится <b id="months">4 месяца</b>.</p>
-            <div class="row__sum" id="sumNadzor">60 000 ₽<small>за весь ремонт</small></div>
+            <p>Фиксированный тариф — 20 000 ₽ в месяц, пока идёт ремонт. Для такой площади ремонт обычно длится <b id="months">4 месяца</b>.</p>
+            <div class="row__sum" id="sumNadzor">80 000 ₽<small>за весь ремонт</small></div>
           </div>
 
           <div class="ctx">
@@ -263,7 +263,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 (function () {
-  var RATE_PLAN = 250, RATE_FULL = 1800, NADZOR_MONTH = 15000;
+  var RATE_PLAN = 300, RATE_FULL = 1800, NADZOR_MONTH = 20000;
   var area = document.getElementById('area');
   var range = document.getElementById('areaRange');
   var presets = document.querySelectorAll('.calc__presets button');
